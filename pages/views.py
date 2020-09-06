@@ -1,13 +1,16 @@
 import json
 import os
 
+from django.http import QueryDict
 from django.views.generic import View
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
-from django.http.response import HttpResponseBadRequest
+from django.http.response import HttpResponseBadRequest, HttpResponse, JsonResponse
 from website.settings import BASE_DIR
+from django.core.files.uploadhandler import FileUploadHandler
+# from django.
 
 from react.render import render_component
 
@@ -21,8 +24,8 @@ from categories.serializers import CategorySerializer, MainCategorySerializer
 from blog.models import  Post
 from blog.serializers import PostSerializer
 
-from .forms import SubscriptionForm
-from .models import NewsTellerEmails
+from .forms import SubscriptionForm, DocumentForm, DocumentSerializer
+from .models import NewsTellerEmails, Document
 
 class FrontendRenderView(View):
     def get(self, request, *args, **kwargs):
@@ -94,11 +97,19 @@ class IndexView(View):
 
 
 
-def home(request):
-    filepath = os.path.join(BASE_DIR, 'frontend/public', 'userScript.js')
-    js_context = {'foobar' : "baz"}
-    content =render_component(filepath, js_context)
-    return render(request, 'views/index.html', {
-        'content' : content,
-        'js_context' : js_context,
-    })
+def test(request):
+    if request.method == 'POST':
+        files = request.FILES
+        single = files.getlist('file')[0]
+        file_name = single.name
+        document = Document.objects.create(
+            name=file_name,
+            document=single,
+        )
+        location = "location"
+        path = f"images/documents/{file_name}"
+        context = { 'response' : f'{{location: "{path}"}}'}
+        json_context = json.dumps(context)
+        render(request, 'views/userPanel.html',json_context)
+        return HttpResponse('Done')
+    return HttpResponse("this is get")

@@ -9,7 +9,7 @@ html {
 
 @font-face {
 	font-family: yekan;
-	src: url(/yekan.ttf);
+	src: url(/static/yekan.ttf);
 }
 
 body {

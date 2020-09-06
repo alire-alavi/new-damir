@@ -29,7 +29,7 @@ export default {
         menubar: "table",
         fontsize_formats: "11px 12px 14px 16px 18px 24px 36px 48px",
         width: "100%",
-        images_upload_url: "/blobyImage",
+        images_upload_url: "test/",
         image_title: true,
         automatic_uploads: true,
         file_picker_types: "image",
@@ -61,7 +61,7 @@ export default {
 
           xhr = new XMLHttpRequest();
           xhr.withCredentials = false;
-          xhr.open("POST", "/blobyImage");
+          xhr.open("POST", "/test/");
 
           xhr.upload.onprogress = function (e) {
             progress((e.loaded / e.total) * 100);

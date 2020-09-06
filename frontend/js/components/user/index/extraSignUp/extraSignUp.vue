@@ -95,7 +95,7 @@
     position: relative;
 }
 .signUpWrapper{
-    padding:20px;
+    padding:40px;
     -moz-padding:20px;
 }
 .signUp{
