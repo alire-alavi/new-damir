@@ -1,0 +1,104 @@
+import json
+import os
+
+from django.views.generic import View
+from django.shortcuts import render, redirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.exceptions import ObjectDoesNotExist
+from django.contrib import messages
+from django.http.response import HttpResponseBadRequest
+from website.settings import BASE_DIR
+
+from react.render import render_component
+
+#COMPONENTS
+from products.models import Product
+from products.serializers import ProductDetailSerializer, ProductSerializer
+
+from categories.models import Category, MainCategory
+from categories.serializers import CategorySerializer, MainCategorySerializer
+
+from blog.models import  Post
+from blog.serializers import PostSerializer
+
+from .forms import SubscriptionForm
+from .models import NewsTellerEmails
+
+class FrontendRenderView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'pages/front-end-render.html', {})
+
+
+class IndexView(View):
+
+    def get(self, *args, **kwargs):
+        try:
+            products_list = Product.objects.all()
+            categories = Category.objects.all()
+            main_categories = MainCategory.objects.all()
+            posts = Post.objects.all()[:3]
+            categories_ser = CategorySerializer(categories, many=True).data
+            main_categories_ser = MainCategorySerializer(main_categories, many=True).data
+            post_ser = PostSerializer(posts, many=True).data
+            categories_ser_json = json.dumps(categories_ser)
+            main_categories_ser_json =json.dumps(main_categories_ser)
+            post_ser_json = json.dumps(post_ser)
+
+            paginator = Paginator(products_list, 12)
+            page = self.request.GET.get('page')
+
+            try:
+                products = paginator.page(page)
+            except PageNotAnInteger:
+                products = paginator.page(1)
+
+            except EmptyPage:
+                products = paginator.page(paginator.num_pages)
+
+            products_ser = ProductDetailSerializer(products, many=True).data
+            products_ser_json = json.dumps(products_ser)
+
+
+            context = {
+                'products' : products_ser_json,
+                'categories' : categories_ser_json,
+                'main_categories' : main_categories_ser_json,
+                'posts' : post_ser_json,
+                'page' : page,
+            }
+            return render(self.request, "views/index.html", context)
+        except ObjectDoesNotExist:
+            message = messages.ERROR("سرور ترکیده")
+            return HttpResponseBadRequest("Object Does Not Exist")
+
+
+    def post(self, request, *args, **kwargs):
+        form = SubscriptionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            email = request.POST['email']
+            if request.user.is_authenticated():
+                news_teller, created = NewsTellerEmails.objects.get_or_create(
+                    user=request.user,
+                    email=email
+                )
+            else:
+                news_teller = NewsTellerEmails.objects.create(
+                    email=email
+                )
+            return redirect("/")
+
+        else:
+            message = messages.ERROR("لطفا ایمیل معتبر وارد کنید")
+            return HttpResponseBadRequest("form")
+
+
+
+def home(request):
+    filepath = os.path.join(BASE_DIR, 'frontend/public', 'userScript.js')
+    js_context = {'foobar' : "baz"}
+    content =render_component(filepath, js_context)
+    return render(request, 'views/index.html', {
+        'content' : content,
+        'js_context' : js_context,
+    })

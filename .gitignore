@@ -1,0 +1,6 @@
+venv
+media
+static
+images
+frontend/node_modules
+node_modules
