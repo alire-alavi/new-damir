@@ -5,7 +5,7 @@ const app=express()
 var EJS  = require('ejs');
 const fileUpload = require('express-fileupload');
 app.set("view engine",'ejs')
-app.set('views', 'views')
+app.set('views', 'templates')
 app.use(b.urlencoded({ extended: false }))
 app.use(b.json())
 app.use(fileUpload());
@@ -16,7 +16,7 @@ app.use('/scripts', express.static(__dirname + '/node_modules/bootstrap/dist/'))
 app.get("/",(req,res)=>{
     res.render("index")
 })
-app.use('/userPanel',(req,res)=>{
+app.use('/users/profile',(req,res)=>{
     res.render("userPanel")
 })
 
@@ -28,12 +28,12 @@ app.get("/products",(req,res)=>{
     res.render("products")
 })
 
-app.get("/signin",(req,res)=>{
-    res.render("signin")
-})
+app.get("/accounts/login",(req,res)=>{
+    res.render("account/signin")
+});
 
-app.get("/signup",(req,res)=>{
-    res.render("signup")
+app.get("/accounts/signup",(req,res)=>{
+    res.render("account/signup")
 })
 app.post('/testy',(req,res)=>{
     console.log(req.body)
@@ -64,4 +64,4 @@ app.use("/blobyImage",async (req,res)=>{
           })
 })
 
-app.listen(3000)
+app.listen(3001)

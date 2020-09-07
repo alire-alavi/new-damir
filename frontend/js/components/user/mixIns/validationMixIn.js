@@ -20,11 +20,12 @@ export const validationRules = {
         },
         validateInput(rule, el) {
             let test=null
+            console.log(el,el.value)
             if(el.value==''){
                 test=false
             }
             else{
-                test = rule.test(el.value.trim())
+                test = rule.test(el.value)
             }
             if (test) {
                 el.classList.remove("wrong")
@@ -39,7 +40,7 @@ export const validationRules = {
     data() {
         return {
             rules: {
-                name: /^[\w]{3,}$/g,
+                name: /^[a-zA-Z]{3,20}$/,
                 email: /^([\w\.]{2,})@([\w]+)\.([a-z]+)$/,
                 pass: /[;:!@#$%\^&*()_\+=-\?/>\.<,\/\\]{1,}/,
                 url: /^(https?):\/\/www\.([\w\.]+)\.([\w\.]+)$/i,

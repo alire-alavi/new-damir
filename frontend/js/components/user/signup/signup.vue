@@ -5,31 +5,31 @@
                 <p>ثبت نام</p>
             </div>
             <div id="signupForm">
-                <form action="">
+                <form action="/accounts/signup/" method="post">
                     <div id="email" class="inputs">
                         <div class='formInputsWrapper'>
-                                <input autocomplete="off" @blur='focusOut($event),startValidation("email",$event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userEmail' type="text">
+                                <input autocomplete="off" name="email" @blur='focusOut($event),startValidation("email",$event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userEmail' type="text">
                                 <label class='comeUpLabel' for="userEmail">ایمیل</label>                                                                  
                         </div>
                         <p class="inputError">فرمت ایمیل اشتباه است</p> 
                     </div>
 
-                    <div id="phoneNumber" class="inputs">
+                    <div id="userName" class="inputs">
                         <div class='formInputsWrapper'>
-                                <input autocomplete="off" @blur='focusOut($event),startValidation("phone",$event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userPhone' type="text">
-                                <label class='comeUpLabel' for="userPhone">شماره تلفن همراه</label>                                                                  
+                                <input autocomplete="off" name="username" @blur='focusOut($event),startValidation("name",$event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userName' type="text">
+                                <label class='comeUpLabel' for="userName">نام کاربری</label>                                                                  
                         </div>
-                        <p class="inputError">فرمت شماره اشتباه است</p> 
+                        <p class="inputError">فرمت نام اشتباه است</p> 
                     </div>
 
                     <div id="password" class="inputs">
                         <div class='formInputsWrapper'>
-                                <input autocomplete="off" v-model="pass" @blur='focusOut($event),startValidation("pass",$event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userPassword' type="password">
+                                <input autocomplete="off" name="password1" v-model="pass" @blur='focusOut($event),startValidation("pass",$event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userPassword' type="password">
                                 <label class='comeUpLabel' for="userPassword">رمز</label>                                
                         </div>
                         <p class="inputError">رمز باید حداقل 8 کاراکتر باشد و همچنین حداقل شامل یک کاراکتر خاص مثل <span>#</span> باشد</p> 
                     </div>
-                    <div id="passwordConf" class="inputs">
+                    <div id="passwordConf" name="password2" class="inputs">
                         <div class='formInputsWrapper'>
                                  
                                 <input autocomplete="off" @blur='focusOut($event),checkConfirmation($event)' id='userPasswordCond' class='inputWithLabelThatShouldStay signupFormInputs' name='passConf'  type="password">
@@ -60,7 +60,7 @@
                     <div id="email" class="inputs">
                         <div class='formInputsWrapper'>
                                                        
-                                <input @blur='focusOut($event)' id='userEmail' type="text">
+                                <input @blur='focusOut($event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userEmail' type="text">
                                 <label class='comeUpLabel' for="userEmail">ایمیل یا نام کاربری</label>
 
                         </div>
@@ -68,7 +68,7 @@
                     <div id="password" class="inputs">
                         <div class='formInputsWrapper'>
                                 
-                                <input @blur='focusOut($event)' id='userPassword' type="text">
+                                <input @blur='focusOut($event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userPassword' type="text">
                                 <label class='comeUpLabel' for="userPassword">رمز</label>
                         </div>
                     </div>

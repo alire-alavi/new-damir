@@ -68,7 +68,7 @@ ROOT_URLCONF = 'website.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'static/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -201,9 +201,6 @@ FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
 
 # # Vue assets directory (assetsDir)
 STATICFILES_DIRS = [
-    os.path.join(FRONTEND_DIR, 'js'),
-    os.path.join(FRONTEND_DIR, 'public'),
-    os.path.join(FRONTEND_DIR, 'views'),
     os.path.join(FRONTEND_DIR, ),
 ]
 

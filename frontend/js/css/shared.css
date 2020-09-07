@@ -18,7 +18,7 @@ body {
 	position: relative;
 	overflow-x: hidden;
 	font-size: 16pt;
-	background: rgb(250, 250, 250)
+	background:white
 }
 
 a {
@@ -118,7 +118,7 @@ select:focus {
 
 .inputError {
 	color: rgb(206, 30, 30) !important;
-	font-size: 13pt;
+	font-size: 17pt;
 	margin-top: 5px;
 	visibility: hidden;
 }
