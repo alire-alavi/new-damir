@@ -1,7 +1,7 @@
 <template>
 	<div class="card">
 		<div class="titleCard"><p>{{cardTitle}}</p></div>
-		<div @click='goToLeft()' class="left"><img src="/images/left.png" alt=""></div>
+		<!-- <div @click='goToLeft()' class="left"><img src="/images/left.png" alt=""></div>
 		<div @mousemove="mouseMove($event)" @mouseup="mouseup($event)" @mouseleave="mouseleave($event)" @mousedown="mouseDown($event)" class="cardWrapper">
 			
 				<div class="cardItem" :id='index' v-for='(p,index) in JSON.parse(products)' :key='index'>
@@ -20,7 +20,87 @@
 				</div>
 				
 		</div>
-		<div @click='goToRight()' class="right"><img src="/images/left.png" alt=""></div>
+		<div @click='goToRight()' class="right"><img src="/images/left.png" alt=""></div> -->
+		<!-- <div class="my-slider">
+			<div><img src="/images/1.jpg" alt=""></div>
+			<div><img src="/images/2.jpg" alt=""></div>
+			<div><img src="/images/3.jpg" alt=""></div>
+			<div><img src="/images/4.jpg" alt=""></div>
+			<div><img src="/images/5.jpg" alt=""></div>
+			<div><img src="/images/6.jpg" alt=""></div>
+
+		</div> -->
+		<div class="splide">
+			<div class="splide__track">
+				<ul class="splide__list">
+					<li class="splide__slide">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img src="/images/bandRole.png" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a href="#"><p>اب چسب</p></a>
+									</div>
+									<div class="descsP">
+										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+									</div>
+									<div class="link">
+										<button class="done">مشاهده</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</li>
+					
+					<li class="splide__slide">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img src="/images/abchasb.png" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a href="#"><p>اب چسب</p></a>
+									</div>
+									<div class="descsP">
+										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+									</div>
+									<div class="link">
+										<button class="done">مشاهده</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</li>
+
+					<li class="splide__slide">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img src="/images/htest2.jpg" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a href="#"><p>اب چسب</p></a>
+									</div>
+									<div class="descsP">
+										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+									</div>
+									<div class="link">
+										<button class="done">مشاهده</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </template>
 <script>	
@@ -31,13 +111,39 @@
 				container:null,
 				isDown:false,
 				startX:null,
-				scrollLeft:null
+				scrollLeft:null,
+				glide:null
+			}
+		},
+		data(){
+			return{
+				perShow:2
 			}
 		},
 		mounted(){
-			this.container=document.querySelector('.cardWrapper')
+			this.container=document.querySelector('.cardWrapper');
+			let per=window.addEventListener("resize",this.adjustSplitejs)
+			this.adjustSplitejs()
+			const glide=new Splide( '.splide',{
+					type   : 'loop',
+					perPage: this.per,
+					perMove: 1,
+				} );
+				glide.mount()
+			
+			
+			
 		},
         methods:{
+			adjustSplitejs(){
+				if(window.innerWidth<=730){
+					this.perShow=1
+				}else{
+					this.perShow=2
+				}
+				return this.perShow
+					
+			},
             getUrl(p){
                 return p.url
             },
@@ -135,7 +241,6 @@
 		overflow-y: hidden;
         overflow-x: scroll;
 		scrollbar-width: none;
-		border-top:2px solid rgb(33,162,184);
 		margin-top:10px;
 		font-weight: lighter;
 		
@@ -197,5 +302,45 @@
 	.cardWrapper:hover{
 		cursor: grabbing;
 	}
+	.singleSlide{
+		width:300px;
+		margin-top:10px;
+		
+
+	}
+	.singleSlide img{
+		width:300px;
+	}
+	.singleSlide .descsP{
+		height:120px;
+	}
+	.descsP p{
+		color:#707070;
+		font-weight:bold
+	}
+	.splide__slide{
+		background: rgb(233, 233, 233);
+		padding:10px;
+	}
+	.title a{
+		color:rgb(56, 56, 255)
+	}
+	.title{
+		margin-top:5px;
+		margin-bottom:5px
+	}
+	.splide--draggable>.splide__track>.splide__list>.splide__slide {
+    -webkit-user-select: none;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+}
+.splide{
+	border-top:2px solid rgb(60,134,199);
+	margin-top:3px
+
+}
+	
+
 	
 </style>
