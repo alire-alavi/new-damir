@@ -2,15 +2,16 @@
 	<div id="index" class='mainItemPerPage'>
 		<div id="topOfIndex">
 			<div id="topOfIndexWrapper">
-				<categorie></categorie>
 				<slider></slider>
+				<categorie></categorie>
+				
 			</div>
 			
 		</div>
 		<flip-card></flip-card>
-		<expanding-card></expanding-card>
+		<!-- <expanding-card></expanding-card> -->
 		
-		<extra-sign-up></extra-sign-up>
+		<!-- <extra-sign-up></extra-sign-up> -->
 		<div id="allCards" class='shouldCollapse maxIs'>
 			<card cardTitle="بیشترین کلیک شده" descs='فلان لان فلان خیلی فلا هی فلان بازم فلان' :products='getProducts()'></card>
 			
@@ -39,9 +40,6 @@
 			expandingCard
 		},
 		props:['products','main_categories','posts'],
-		created(){
-			console.log(this.products,this.main_categories,this.posts)
-		},
 		data(){
 			return{
 				products:[{desc:'محصل فلانئ ئنیسئب ئنئ ثنصئب نئنئ ئن ئنئنئنئنئنئنئنئنئنئنئن و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"}]
@@ -62,7 +60,7 @@
 		margin-bottom: 20px;
 	}
 	#topOfIndex{
-		background: #d3d3d3;
+		background: #ffffff;
 	}
 	#topOfIndexWrapper{
 		display:flex;
@@ -104,7 +102,8 @@
 	}
 	.titleCard{
 		display: flex;
-		justify-content: center;
+		width:100%;
+		justify-content: flex-end;
 	}
 
 

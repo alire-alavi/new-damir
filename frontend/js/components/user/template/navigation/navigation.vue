@@ -47,6 +47,7 @@
 
 <script>
 	import ham from "../hamIcon/ham.vue"
+	import slicer from "../slicer/slicer.vue"
 	import flatMenu from "../flatMenu/flatMenu.vue"
 	import {mapActions} from "vuex"
 
@@ -131,19 +132,21 @@
 <style scoped>
 	.hamIcon{
 		display:none;
-		background: rgb(16,14,23);
+		background: #f6f6f4;
 		widtH:100%;
-		justify-content:center
+		justify-content:center;
+		border-top:1px solid #d9d8d8
 	}
 	#navigation{
 		display: flex;
 		justify-content: center;
 		width:100%;
-		background: rgb(16,14,23);
+		background: #f6f6f4;
+		border-bottom:1px solid #d9d8d8
 		
 	}
 	a{
-		color:white;
+		color:black;
 		padding:5px
 	}
 	.hamSvg{
@@ -156,7 +159,7 @@
 		display: flex;
 		justify-content: space-between;
 		z-index:667;
-		background: rgb(16,14,23);
+		background: #f6f6f4;
 	}
 	ul{
 		display: flex;
@@ -166,7 +169,7 @@
 		border-left:1px solid white
 	}
 	#allCategories{
-		color:white;
+		color:black;
 		display: none;
 	}
 	#allCategories ul li{
@@ -217,7 +220,7 @@
 			display:block
 		}
 		svg{
-			fill:rgb(33,162,184)
+			fill:rgb(11,111,210)
 		}
 	}
 

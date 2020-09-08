@@ -6,6 +6,9 @@
 
 <style scoped>
     path{
-        fill:rgb(177, 174, 174)
+        fill:rgb(9,111,209);
+    }
+    svg{
+        transform:rotateY(180deg)
     }
 </style>

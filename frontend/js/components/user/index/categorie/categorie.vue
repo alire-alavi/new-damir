@@ -7,7 +7,7 @@
             </div>
             <div id="allCats">
                 <ul>
-                    <li class="parentLi">دست1 <arrow></arrow>
+                    <li class="parentLi"><arrow></arrow>  دست1 
                         <div class="subMenu">
                             <div class="subTitleWrapper">
                                 <div class="SubTitle"><p>دسته 1</p></div>
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="parentLi">دست1 <arrow></arrow>
+                    <li class="parentLi"> <arrow></arrow>دست1 
                     <div class="subMenu">
                             <div class="subTitleWrapper">
                                 <div class="SubTitle"><p>دسته 1</p></div>
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="parentLi">دست1 <arrow></arrow>
+                    <li class="parentLi"><arrow></arrow> دست1
                     <div class="subMenu">
                             <div class="subTitleWrapper">
                                 <div class="SubTitle"><p>دسته 1</p></div>
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="parentLi">دست1 <arrow></arrow>
+                    <li class="parentLi"><arrow></arrow> دست1 
                     <div class="subMenu">
                             <div class="subTitleWrapper">
                                 <div class="SubTitle"><p>دسته 1</p></div>
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="parentLi">دست1 <arrow></arrow>
+                    <li class="parentLi"><arrow></arrow> دست1 
                     <div class="subMenu">
                             <div class="subTitleWrapper">
                                 <div class="SubTitle"><p>دسته 1</p></div>
@@ -120,9 +120,8 @@
     }
     .subMenu{
         position: absolute;
-        /* left:0; */
         display:none;
-        /* left:218px; */
+        right:100%;
         z-index:667;
         background-color: white;
         height:max-content;
@@ -166,8 +165,15 @@
         display:flex;
         justify-content: space-between;
     }
+    .subMenu li{
+        display:flex;
+        justify-content:flex-end
+    }
     .parentLi{
         position: relative;
+    }
+    .parentLi:hover .subMenu{
+        display:block
     }
     #hamCats{
         display:flex;

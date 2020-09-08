@@ -19,13 +19,6 @@
       getImg() {
         return this.img;
       },
-    },
-    mounted(){
-      // VanillaTilt.init(document.querySelectorAll(".flip-card"), {
-      //   max: 30,
-      //   speed: 400,
-      //   glare:false
-      // });
     }
   };
 </script>
@@ -70,8 +63,8 @@
 }
 
 .flip-card-front {
-  background-color: rgb(56, 56, 56);
-  color: white;
+  background-color: #ffffff;
+  color: black;
 }
 
 .flip-card-back {

@@ -9,7 +9,7 @@ html {
 
 @font-face {
 	font-family: yekan;
-	src: url(/static/yekan.ttf);
+	src: url(/yekan.ttf);
 }
 
 body {
@@ -18,7 +18,10 @@ body {
 	position: relative;
 	overflow-x: hidden;
 	font-size: 16pt;
-	background:white;
+	background:#f6f6f4;
+}
+.link{
+	color:rgb(56, 56, 255)
 }
 
 a {
@@ -30,6 +33,7 @@ a {
 p {
 	direction: rtl;
 	text-align: right;
+	color:black
 }
 
 input {

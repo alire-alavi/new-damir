@@ -23,11 +23,11 @@
 		
 		 <script defer> 
 			window.onload=()=>{
-					dodo()
+					{% comment %} dodo() {% endcomment %}
 					showCats()
-					window.addEventListener("resize",dodo)
+					{% comment %} window.addEventListener("resize",dodo) {% endcomment %}
 					window.addEventListener("resize",showCats)
-					function dodo(){
+					{% comment %} function dodo(){
 
 						const lis=document.querySelectorAll(".parentLi")
 						lis.forEach(li=>{
@@ -35,7 +35,7 @@
 							const subMenu=li.querySelector(".subMenu")
 							subMenu.style.left=bound.width
 						})
-					}
+					} {% endcomment %}
 					function showCats(){
 						const href=window.location.pathname
 						if(window.innerWidth>801 && href.length>1){

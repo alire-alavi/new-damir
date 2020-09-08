@@ -53,6 +53,6 @@
         display:flex;
         justify-content: center;
         margin:50px 0;
-        background: #222;
+        background: #ffffff;
     }
 </style>

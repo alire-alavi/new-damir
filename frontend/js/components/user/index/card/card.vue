@@ -1,36 +1,8 @@
 <template>
 	<div class="card">
-		<div class="titleCard"><p>{{cardTitle}}</p></div>
-		<!-- <div @click='goToLeft()' class="left"><img src="/images/left.png" alt=""></div>
-		<div @mousemove="mouseMove($event)" @mouseup="mouseup($event)" @mouseleave="mouseleave($event)" @mousedown="mouseDown($event)" class="cardWrapper">
-			
-				<div class="cardItem" :id='index' v-for='(p,index) in JSON.parse(products)' :key='index'>
-					<div class="productImage">
-						<img :src="getUrl(p)" alt="">
-					</div>
-					<div class="productTitle">
-						<a href="#"><p>خط تولید مشاین لباسش شویی تمم اتومات</p></a>
-					</div>
-					<div class="productDesc">
-						<p>{{getDesc(p.desc)}}</p>
-					</div>
-					<div class="productContinue">
-						<a href="#"><button class=continue>ادامه مطلب</button></a>
-					</div>
-				</div>
-				
-		</div>
-		<div @click='goToRight()' class="right"><img src="/images/left.png" alt=""></div> -->
-		<!-- <div class="my-slider">
-			<div><img src="/images/1.jpg" alt=""></div>
-			<div><img src="/images/2.jpg" alt=""></div>
-			<div><img src="/images/3.jpg" alt=""></div>
-			<div><img src="/images/4.jpg" alt=""></div>
-			<div><img src="/images/5.jpg" alt=""></div>
-			<div><img src="/images/6.jpg" alt=""></div>
-
-		</div> -->
+		
 		<div class="splide">
+			<div class="titleCard"><p>{{cardTitle}}</p></div>
 			<div class="splide__track">
 				<ul class="splide__list">
 					<li class="splide__slide">
@@ -41,13 +13,13 @@
 								</div>
 								<div class="descs">
 									<div class="title">
-										<a href="#"><p>اب چسب</p></a>
+										<a class="link" href="#">اب چسب</a>
 									</div>
 									<div class="descsP">
 										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
 									</div>
 									<div class="link">
-										<button class="done">مشاهده</button>
+										<a class="submit">مشاهده</a>
 									</div>
 								</div>
 							</div>
@@ -63,13 +35,13 @@
 								</div>
 								<div class="descs">
 									<div class="title">
-										<a href="#"><p>اب چسب</p></a>
+										<a class="link" href="#">اب چسب</a>
 									</div>
 									<div class="descsP">
 										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
 									</div>
 									<div class="link">
-										<button class="done">مشاهده</button>
+										<a class="submit">مشاهده</a>
 									</div>
 								</div>
 							</div>
@@ -85,13 +57,13 @@
 								</div>
 								<div class="descs">
 									<div class="title">
-										<a href="#"><p>اب چسب</p></a>
+										<a class="link" href="#">اب چسب</a>
 									</div>
 									<div class="descsP">
 										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
 									</div>
 									<div class="link">
-										<button class="done">مشاهده</button>
+										<a class="submit">مشاهده</a>
 									</div>
 								</div>
 							</div>
@@ -105,13 +77,13 @@
 								</div>
 								<div class="descs">
 									<div class="title">
-										<a href="#"><p>اب چسب</p></a>
+										<a class="link" href="#">اب چسب</a>
 									</div>
 									<div class="descsP">
 										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
 									</div>
 									<div class="link">
-										<button class="done">مشاهده</button>
+										<a class="submit">مشاهده</a>
 									</div>
 								</div>
 							</div>
@@ -127,13 +99,13 @@
 								</div>
 								<div class="descs">
 									<div class="title">
-										<a href="#"><p>اب چسب</p></a>
+										<a class="link" href="#">اب چسب</a>
 									</div>
 									<div class="descsP">
 										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
 									</div>
 									<div class="link">
-										<button class="done">مشاهده</button>
+										<a class="submit">مشاهده</a>
 									</div>
 								</div>
 							</div>
@@ -149,13 +121,13 @@
 								</div>
 								<div class="descs">
 									<div class="title">
-										<a href="#"><p>اب چسب</p></a>
+										<a class="link" href="#"><p>اب چسب</p></a>
 									</div>
 									<div class="descsP">
 										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
 									</div>
 									<div class="link">
-										<button class="done">مشاهده</button>
+										<a class="submit">مشاهده</a>
 									</div>
 								</div>
 							</div>
@@ -188,30 +160,15 @@
 			this.container=document.querySelector('.cardWrapper');
 			const glide=new Splide( '.splide',{
 					type   : 'loop',
-					perPage: 3,
+					perPage: 4,
 					perMove: 1,
 				} );
 				glide.mount()
-				let per=2
-					let width=window.innerWidth
-					if(width>=1000){
-						per=3
-					}else if(width<1000 && width>=600){
-						per=2
-					}else if(width<600){
-						per=1
-					}
+				let per=this.reCalculatePer()
 					glide.options.perPage=per
 				glide.on('resize',()=>{
-					let per=2
-					let width=window.innerWidth
-					if(width>=1000){
-						per=3
-					}else if(width<1000 && width>=600){
-						per=2
-					}else if(width<600){
-						per=1
-					}
+					let per=this.reCalculatePer()
+					
 					glide.options.perPage=per
 				})
 			
@@ -219,9 +176,20 @@
 			
 		},
         methods:{
-			adjustSplitejs(){
-				
-				return this.perShow
+			reCalculatePer(){
+				let per=2
+					let width=window.innerWidth
+					if(width>=1100){
+						per=4
+					}
+					else if(width<=1099 && width>=851){
+						per=3
+					}else if(width<=850 && width>=600){
+						per=2
+					}else if(width<=599){
+						per=1
+					}
+					return per
 					
 			},
             getUrl(p){
@@ -282,40 +250,6 @@
 
 
 <style scoped>
-	.right{
-		right:0;
-	}
-	.left{
-		left:0;
-	}
-	.right,.left{
-		background: rgba(211, 110, 28, 0.801);
-		position:absolute;
-		top:50%;
-		border-radius: 50%;
-		display:flex;
-		justify-content: center;
-		align-items: center;
-		width:45px;
-		height: 30px;
-	}
-	.right{
-		transform: rotate(180deg);
-	}
-	.right img,.left img{
-		width:30px;
-		height:20px;
-	}
-    .titleCard{
-        padding:5px 0 5px 0;
-		background: rgb(60,134,199);
-		padding:10px;
-		color:white;
-		width:max-content;
-		font-size:18pt;
-		border-top-left-radius: 20px;
-		border-top-right-radius: 20px;
-    }
 	.cardWrapper{
 		display: flex;
 		overflow-y: hidden;
@@ -375,21 +309,21 @@
 	.splide__slide{
 		padding:10px;
 	}
-	.title a{
-		color:rgb(56, 56, 255)
-	}
 	.title{
 		margin-top:5px;
-		margin-bottom:5px
+		margin-bottom:5px;
+		display:flex;
+		justify-content: flex-end;
 	}
 	.splide--draggable>.splide__track>.splide__list>.splide__slide {
     -webkit-user-select: none;
     user-select: none;
     display: flex;
-    justify-content: center;
+	justify-content: center;
+	margin-top:20px;
+	margin-bottom:10px
 }
 .splide{
-	border-top:2px solid rgb(60,134,199);
 	margin-top:3px
 
 }

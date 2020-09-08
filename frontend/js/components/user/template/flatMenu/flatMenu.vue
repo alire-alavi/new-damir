@@ -1,5 +1,6 @@
 <template>
 	<div id="flatMenu" @click="toggleSubMenu(),toggleOverFlow()">
+		<div class="overLay"></div>
 		<div id="flatMenuWrapper" @click='prevent'>
 			<ul>
 			    <li>	
@@ -32,102 +33,6 @@
 				<li>
 			    	<a href="#">پالت استرچ </a>
 				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته کشاورزی</a>
-				</li>
-				<li>
-			    	<a href="#">کابل کئوکسال</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته کشاورزی</a>
-				</li>
-				<li>
-			    	<a href="#">کابل کئوکسال</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته کشاورزی</a>
-				</li>
-				<li>
-			    	<a href="#">کابل کئوکسال</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته کشاورزی</a>
-				</li>
-				<li>
-			    	<a href="#">کابل کئوکسال</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
 				
 			</ul>
 		</div>
@@ -137,25 +42,27 @@
 <style scoped>
 	
 	#flatMenu{
-		background: white;
-		position: absolute;
-		z-index:668;
-		top:0;
-		background: rgba(0,0,0,0.5);
-		width:100%;
-		height:100%;
 		display:flex;
 		justify-content: center;
 
 	}
+	.overLay{
+		position: absolute;
+		z-index:669;
+		top:0;
+		background: rgba(0,0,0,0.5);
+		width:100%;
+		height:100%;
+
+	}
 	#flatMenuWrapper{
 		padding: 10px;
-		background: rgb(20,40,80);
+		background:#f6f6f4;
 		padding-right: 0;
 		position: absolute;
+		z-index:670;
 		line-height: 2rem;
 		width:90%;
-		height: 400px;
 		display:flex;
 		flex-wrap: nowrap;
 		width:max-content;
@@ -163,9 +70,9 @@
 		top:0;
 		bottom:0;
 		overflow: scroll;
-		
-		
+		animation:comeRight 0.4s linear 0.2
 	}
+	
 	ul{
 		direction: rtl;
 		display:flex;
@@ -188,17 +95,16 @@
 		position: relative;
 		margin-top:5px;
 		padding:5px;
-		transition: all 0.5s linear;
 		text-align:right;
 		width:100%
 	}
 	li a{
 		position: relative;
-		color:white;
+		color:black;
 	}
 	li a:before,
 	li a:after {
-		background-color: red;
+		background-color: rgb(11,111,211);
 	} 
 	
 	li a:hover:before,li:hover a:before{
@@ -239,8 +145,17 @@
 			top:0;
 			bottom:0;
 			overflow: scroll;
-			height:100vh
+			height:100vh;
+			animation:comeRight 0.4s linear 0.2s
 		}
+		@keyframes comeRight {
+		from{
+			right:-100%;
+		}
+		to{
+			right:0
+		}
+	}
 		#flatMenuWrapper ul{
 			height:100%;
 

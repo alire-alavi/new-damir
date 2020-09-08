@@ -97,6 +97,3 @@ def post_list(request):
         'posts' : post_json_string,
     }
     return render(request, 'views/blog.html', context)
-
-
-def post_detail(request):

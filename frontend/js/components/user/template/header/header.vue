@@ -25,12 +25,12 @@
 <style scoped>
 	#header{
 		width: 100%;
-		background:rgb(16,14,23);
+		background:#f6f6f4;
 		display: flex;
 		justify-content: center;
 	}
 	p{
-		color:white
+		color:black
 	}
 	#headerWrapper{
 		width: 95%;
@@ -52,26 +52,25 @@
 	form{
 		display: flex;
 		align-items: center;
-		border:2px solid rgb(49,45,60);
+		border:2px solid rgb(9,111,211);
 		border-radius:28px;
 		
 	}
 	input{
-		background: #201c29;
+		
 		border: 0;
 		min-width: 0;
 		flex: 1;
-		color: #fff;
+		color: black;
 		padding: .5rem 1rem;
 		border-top-left-radius: 27px;
 		border-bottom-left-radius: 27px;
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 		height:100%;
-		color:white
 	}
 	::placeholder {
-  		color: white;
+  		color: black;
   		opacity: 1; 
 	}
 	.magnifier{
@@ -80,12 +79,19 @@
 		border-bottom-right-radius: 27px;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
-		background-image: linear-gradient(90deg,#ff8a00,#e52e71);
+		background-color:#ffffff;
 		padding: 0 22px 0 18px;
 		padding:10px;
 		display: flex;
 		justify-content: center;
 		height: 100%;
+	}
+	.logo{
+		max-width:270px;
+
+	}
+	.logo img{
+		width:100%
 	}
 	@media  (max-width: 833px)
 	{
