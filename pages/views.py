@@ -12,8 +12,6 @@ from website.settings import BASE_DIR
 from django.core.files.uploadhandler import FileUploadHandler
 # from django.
 
-from react.render import render_component
-
 #COMPONENTS
 from products.models import Product
 from products.serializers import ProductDetailSerializer, ProductSerializer

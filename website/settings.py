@@ -13,7 +13,7 @@ SECRET_KEY = 'r&l5m&!!ne%yjv=^r5t4vpb!o0(z-#(bei2^o8)o@ung8swi^z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.103']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'hitcount',
     'ckeditor',
     'ckeditor_uploader',
-    'react',
 
 
 ]

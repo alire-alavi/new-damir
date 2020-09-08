@@ -97,6 +97,70 @@
 							</div>
 						</div>
 					
+					</li><li class="splide__slide">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img src="/images/bandRole.png" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a href="#"><p>اب چسب</p></a>
+									</div>
+									<div class="descsP">
+										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+									</div>
+									<div class="link">
+										<button class="done">مشاهده</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</li>
+					
+					<li class="splide__slide">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img src="/images/abchasb.png" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a href="#"><p>اب چسب</p></a>
+									</div>
+									<div class="descsP">
+										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+									</div>
+									<div class="link">
+										<button class="done">مشاهده</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</li>
+
+					<li class="splide__slide">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img src="/images/htest2.jpg" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a href="#"><p>اب چسب</p></a>
+									</div>
+									<div class="descsP">
+										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+									</div>
+									<div class="link">
+										<button class="done">مشاهده</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					
 					</li>
 				</ul>
 			</div>
@@ -122,25 +186,41 @@
 		},
 		mounted(){
 			this.container=document.querySelector('.cardWrapper');
-			let per=window.addEventListener("resize",this.adjustSplitejs)
-			this.adjustSplitejs()
 			const glide=new Splide( '.splide',{
 					type   : 'loop',
-					perPage: this.per,
+					perPage: 3,
 					perMove: 1,
 				} );
 				glide.mount()
+				let per=2
+					let width=window.innerWidth
+					if(width>=1000){
+						per=3
+					}else if(width<1000 && width>=600){
+						per=2
+					}else if(width<600){
+						per=1
+					}
+					glide.options.perPage=per
+				glide.on('resize',()=>{
+					let per=2
+					let width=window.innerWidth
+					if(width>=1000){
+						per=3
+					}else if(width<1000 && width>=600){
+						per=2
+					}else if(width<600){
+						per=1
+					}
+					glide.options.perPage=per
+				})
 			
 			
 			
 		},
         methods:{
 			adjustSplitejs(){
-				if(window.innerWidth<=730){
-					this.perShow=1
-				}else{
-					this.perShow=2
-				}
+				
 				return this.perShow
 					
 			},
@@ -259,36 +339,6 @@
 		/* align-items: flex-end; */
 		flex-direction: column;
     }
-    .cardItems{
-        padding:30px
-    }
-	.cardItem{
-		display: flex;
-		flex-direction: column;
-        align-items: center;
-		padding:10px;
-    }
-    
-	.cardItem p{
-		word-break: keep-all;
-	}
-	.productDesc{
-		width: 250px;
-		min-height: 100px;
-		margin-top:5px;
-		
-	}
-	.productTitle{
-		width: 250px;
-		margin-top:5px;
-	}
-	.productTitle p{
-		color:rgb(34, 105, 122)
-	}
-	.productImage{
-		width: 250px;
-		height: 230px;
-	}
 	
 	img{
 		width: 250px;
@@ -303,13 +353,17 @@
 		cursor: grabbing;
 	}
 	.singleSlide{
-		width:300px;
+		width:280px;
 		margin-top:10px;
 		
 
 	}
 	.singleSlide img{
-		width:300px;
+		width:280;
+	}
+	.img{
+		display:flex;
+		justify-content: center;
 	}
 	.singleSlide .descsP{
 		height:120px;
@@ -319,7 +373,6 @@
 		font-weight:bold
 	}
 	.splide__slide{
-		background: rgb(233, 233, 233);
 		padding:10px;
 	}
 	.title a{
