@@ -3,9 +3,8 @@
 		<div id="topOfIndex">
 			<div id="topOfIndexWrapper">
 				<categorie></categorie>
-				<slider></slider>	
-				
-			</div>			
+				<slider></slider>
+			</div>
 			
 		</div>
 		<flip-card></flip-card>
@@ -19,11 +18,43 @@
 		<div class="digiCardIndex shouldCollapse maxIs">
 			<digi-card :imgs='JSON.stringify(["/images/shrink.png","/images/shrink2.png","/images/digi1.jpg","/images/digi2.jpg"])'></digi-card>
 		</div>
-		<div class="customers">
-			
-		</div>
 	</div>
 </template>
+<script>
+	import digiCard from "./digiCard/digiCard.vue"
+	import slider from "./slider/slider.vue"
+	import card from './card/card.vue'
+	import flipCard from './flipCard/flipCard.vue'
+	import categorie from './categorie/categorie.vue'
+	import expandingCard from './expandingCard/expandingCard.vue'
+	import extraSignUp from "./extraSignUp/extraSignUp.vue"
+	export default{
+		components:{
+			slider,
+			card,
+			categorie,
+			flipCard,
+			digiCard,
+			extraSignUp,
+			expandingCard
+		},
+		props:['products','main_categories','posts'],
+		created(){
+			console.log(this.products,this.main_categories,this.posts)
+		},
+		data(){
+			return{
+				products:[{desc:'محصل فلانئ ئنیسئب ئنئ ثنصئب نئنئ ئن ئنئنئنئنئنئنئنئنئنئنئن و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"}]
+			}
+		},
+		methods:{
+			getProducts(){
+				return JSON.stringify(this.products)
+			}
+		}
+		
+	}
+</script>
 
 <style>
 	.digiCardIndex{
@@ -119,34 +150,3 @@
 </style>
 
 
-<script>
-	import digiCard from "./digiCard/digiCard.vue"
-	import slider from "./slider/slider.vue"
-	import card from './card/card.vue'
-	import flipCard from './flipCard/flipCard.vue'
-	import categorie from './categorie/categorie.vue'
-	import expandingCard from './expandingCard/expandingCard.vue'
-	import extraSignUp from "./extraSignUp/extraSignUp.vue"
-	export default{
-		components:{
-			slider,
-			card,
-			categorie,
-			flipCard,
-			digiCard,
-			extraSignUp,
-			expandingCard
-		},
-		data(){
-			return{
-				products:[{desc:'محصل فلانئ ئنیسئب ئنئ ثنصئب نئنئ ئن ئنئنئنئنئنئنئنئنئنئنئن و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"}]
-			}
-		},
-		methods:{
-			getProducts(){
-				return JSON.stringify(this.products)
-			}
-		}
-		
-	}
-</script>

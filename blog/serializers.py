@@ -62,7 +62,7 @@ class CommentSerializer(serializers.ModelSerializer):
 class PostDetailSerializer(serializers.ModelSerializer):
     categories = StringSerializer(many=True)
     author = serializers.SerializerMethodField()
-    # comments = serializers.SerializerMethodField()
+    comments = serializers.SerializerMethodField()
 
     class Meta:
         model = Post
@@ -78,7 +78,7 @@ class PostDetailSerializer(serializers.ModelSerializer):
             'active_post',
             'slug',
             'author',
-            # 'comments',
+            'comments',
             'get_comment',
         )
 

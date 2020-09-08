@@ -250,7 +250,7 @@ class ProductDetailView(View):
                 'product': json_product,
                 'object' : queryset,
             }
-            return render(request, 'product.html', context)
+            return render(request, 'views/product.html', context)
         except ObjectDoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
