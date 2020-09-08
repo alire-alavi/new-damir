@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'hitcount',
     'ckeditor',
     'ckeditor_uploader',
-    'react',
 
 
 ]

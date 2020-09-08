@@ -89,4 +89,14 @@ def post_list_view(request):
     return render(request, 'views/blog.html', { 'posts' : posts_json_string})
 
 
+def post_list(request):
+    posts = Post.objects.all()
+    serialized = PostSerializer(posts, many=True).data
+    post_json_string = json.dumps(serialized)
+    context = {
+        'posts' : post_json_string,
+    }
+    return render(request, 'views/blog.html', context)
 
+
+def post_detail(request):

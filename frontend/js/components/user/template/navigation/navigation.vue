@@ -27,7 +27,7 @@
 					<ul>
 						<li><a href="/">خانه</a></li>
 						<li><a href="#">درباره ما</a></li>
-						<li><a href="/blog">وبلاگ</a></li>
+						<li><a href="/blog/posts/">وبلاگ</a></li>
 						
 						
 					</ul>
