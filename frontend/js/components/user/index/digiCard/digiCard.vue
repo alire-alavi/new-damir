@@ -23,6 +23,7 @@
         flex-wrap: wrap;
         width:100%;
         justify-content: center;
+        background: #ffffff
         
     }
     .singleDigicardWrapper{

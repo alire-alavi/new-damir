@@ -5,21 +5,22 @@
 			<div class="titleCard"><p>{{cardTitle}}</p></div>
 			<div class="splide__track">
 				<ul class="splide__list">
-					<li class="splide__slide">
+					<li class="splide__slide" v-for="(p,index) in products">
 						<div class="singleSlide">
 							<div class="singleSlideWrapper">
 								<div class="img">
-									<img src="/images/bandRole.png" alt="">
+									<img :src="getImage(p.product_image)" alt="">
 								</div>
 								<div class="descs">
 									<div class="title">
-										<a class="link" href="#">اب چسب</a>
+										<a class="link" href="#">{{p.title}}</a>
 									</div>
 									<div class="descsP">
-										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+										<p>{{p.description}}</p>
 									</div>
 									<div class="link">
 										<a class="submit">مشاهده</a>
+										<p>{{p.price || 0}}  تومان</p>
 									</div>
 								</div>
 							</div>
@@ -27,7 +28,7 @@
 					
 					</li>
 					
-					<li class="splide__slide">
+					<!-- <li class="splide__slide">
 						<div class="singleSlide">
 							<div class="singleSlideWrapper">
 								<div class="img">
@@ -133,7 +134,7 @@
 							</div>
 						</div>
 					
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>
@@ -141,7 +142,7 @@
 </template>
 <script>	
     export default{
-		props:['cardTitle','descs','products'],
+		props:['products'],
 		data(){
 			return{
 				container:null,
@@ -158,19 +159,23 @@
 		},
 		mounted(){
 			this.container=document.querySelector('.cardWrapper');
+			let per=this.reCalculatePer()
 			const glide=new Splide( '.splide',{
 					type   : 'loop',
-					perPage: 4,
+					perPage: per,
 					perMove: 1,
 				} );
 				glide.mount()
-				let per=this.reCalculatePer()
-					glide.options.perPage=per
-				glide.on('resize',()=>{
-					let per=this.reCalculatePer()
-					
-					glide.options.perPage=per
+				window.addEventListener("resize",()=>{
+					let pper=this.reCalculatePer()
+					glide.options.perPage=pper
 				})
+				
+				// glide.on('resize',()=>{
+				// 	let per=this.reCalculatePer()
+					
+				// 	glide.options.perPage=per
+				// })
 			
 			
 			
@@ -241,6 +246,25 @@
 						window.clearInterval(slideTimer);
 					}
 				}, speed);
+			},
+			getPrice(p){
+				// return "hey"
+				let price=p || p.toString().split("")
+				let c=0
+				const newPrice=[]
+				for (let i=price.length-1;i>0;i--){
+					newPrice.push(price[i])
+					c++
+					if(c==3){
+						newPrice.push(",")
+						c=0
+					}
+				}
+				return newPrice.reverse().join("")
+			},
+			getImage(img){
+				console.log(img)
+				return '/images/کیسه-پر-کنCBE-NWB-300x300.png'
 			}
 		}
     }
@@ -289,8 +313,11 @@
 	.singleSlide{
 		width:280px;
 		margin-top:10px;
-		
-
+	}
+	.link{
+		display: flex;
+    justify-content: space-between;
+    align-items: center;
 	}
 	.singleSlide img{
 		width:280;

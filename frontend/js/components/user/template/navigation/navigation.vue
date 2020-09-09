@@ -15,7 +15,7 @@
 				</div>
 				<div ref='allCategories' id="allCategories">
 					<ul>
-						<li @click='toggleSubMenu();checkTop($event),shouldDisplay()'>
+						<li @click='toggleSubMenu();checkTop($event)'>
 							دسته بندی محصولات
 						</li>
 					</ul>
@@ -97,9 +97,6 @@
 						this.toggleSubMenu()
 					}
 				}
-			},
-			shouldDisplay(){
-				
 			}
 			
 			

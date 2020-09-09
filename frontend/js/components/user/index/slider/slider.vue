@@ -151,7 +151,8 @@
 	#slider{
 		position:relative;
 		width:688px;
-		max-height:max-content
+		max-height:max-content;
+		background-color: #ffffff
 	}
 	.container{
 		position:absolute;

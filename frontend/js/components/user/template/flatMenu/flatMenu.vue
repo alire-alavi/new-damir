@@ -1,37 +1,64 @@
 <template>
 	<div id="flatMenu" @click="toggleSubMenu(),toggleOverFlow()">
-		<div class="overLay"></div>
 		<div id="flatMenuWrapper" @click='prevent'>
 			<ul>
 			    <li>	
-			    	<a href="#">دسته 1</a>
+			    	<div class="link" @click="openMySubMenu($event)">
+			    		
+			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(180deg)"></path></svg>
+			    		<p>دسته 1</p>
+			    	</div>
+			    	
+
+			    	<ul class="subMenu">
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    	</ul>
 			    </li>
 			    <li>
-			    	<a href="#">کسیه پر کن</a>
+			    	<div class="link">
+			    		
+			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(270deg)"></path></svg>
+			    		<p @click="openMySubMenu($event)">دسته 1</p>
+			    	</div>
+			    	<ul class="subMenu">
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    	</ul>
 				</li>
 			    <li>
-			    	<a href="#">دستگاه برش چسب</a>
+			    	<div class="link">
+			    		
+			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(270deg)"></path></svg>
+			    		<p @click="openMySubMenu($event)">دسته 1</p>
+			    	</div>
+			    	<ul class="subMenu">
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    	</ul>
 				</li>
 			    <li>
-			    	<a href="#">کابل کئوکسال</a>
-				</li>
-				<li>
-			    	<a href="#">شرینک پد</a>
-				</li>
-				<li>
-			    	<a href="#">جت پرینتر</a>
-				</li>
-				<li>
-			    	<a href="#">باند رول</a>
-				</li>
-				<li>
-			    	<a href="#">تسمه کش</a>
-				</li>
-				<li>
-			    	<a href="#">دستگاه توزین</a>
-				</li>
-				<li>
-			    	<a href="#">پالت استرچ </a>
+			    	<div class="link">
+			    		
+			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(270deg)"></path></svg>
+			    		<p @click="openMySubMenu($event)">دسته 1</p>
+			    	</div>
+			    	<ul class="subMenu">
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    	</ul>
 				</li>
 				
 			</ul>
@@ -40,152 +67,58 @@
 </template>
 
 <style scoped>
-	
 	#flatMenu{
-		display:flex;
-		justify-content: center;
 		position: absolute;
-		z-index:669;
-		top:0;
-		background: rgba(0,0,0,0.5);
 		width:100%;
-		height:100%;
-
+		top:0;
+		bottom:0;
+		background:rgba(0,0,0,0.5);
+		z-index:669
 	}
 	#flatMenuWrapper{
-		padding: 10px;
-		background:#f6f6f4;
-		padding-right: 0;
-		position: absolute;
-		z-index:670;
-		line-height: 2rem;
-		width:90%;
-		display:flex;
-		flex-wrap: nowrap;
+		position:absolute;
 		width:max-content;
-		top:0;
-		bottom:0;
-		overflow: scroll;
-		animation:comeRight 0.4s linear 0.2
+		background:#f6f6f4;
+		height:100vh;
+		z-index:670;
+		right:-100%;
+		width:max-content;
+		transition: all 1s;
+		overflow: auto;
+
 	}
-	
 	ul{
-		direction: rtl;
-		display:flex;
-		width:100%;
-		flex-direction: column;
-		max-height: 100%;
-		justify-content: flex-end;
-		flex-wrap: wrap;
-		position: relative;
-		display:flex;
-		flex-direction:column;
-		align-items: flex-end;
-		justify-content: flex-start;
-		max-height: max-content;
-		flex-wrap: nowrap;
-		height:100%
+		padding:10px;
+		line-height: 2rem
 	}
 	li{
-		cursor: pointer;
-		position: relative;
-		margin-top:5px;
+		text-align: right;
+		position:relative;
+		margin-top: 5px;
+		margin-bottom: 5px
+	}
+	.subMenu{
+		background-color: #dfdfdf;
+		width:100%;
+		padding:0;
+		height:0;
+		overflow: hidden;
+	}
+	.subMenu li{
 		padding:5px;
-		text-align:right;
-		width:100%
 	}
-	li a{
-		position: relative;
-		color:black;
+	svg{
+		width:15px;
+		height: 15px;
+		transform: rotate(-90deg);
 	}
-	li a:before,
-	li a:after {
-		background-color: rgb(11,111,211);
-	} 
-	
-	li a:hover:before,li:hover a:before{
-		transform:scaleX(1)
+	.link{
+		display: flex;
+    	justify-content: space-between;
+    	align-items: center;
 	}
-	li a:before{
-		content:'';
-		position:absolute;
-		top:0;
-		left:0;
-		width:100%;
-		height:2px;
-		transform: scaleX(0);
-		transition:all 0.5s ;
-		transform-origin: left;
-	}
-	li a:after{
-		content:'';
-		position:absolute;
-		bottom:0;
-		left:0;
-		width:100%;
-		height:2px;
-		transform: scaleX(0);
-		transition:all 0.5s ;
-		transform-origin: right;
-	}
-	li:hover a:before,li:hover a:after{
-		transform:scaleX(1)
-	}
-	.subMenu:hover{
-		display: block
-	}
-	@media (max-width: 924px){
-		#flatMenuWrapper{
-			width:max-content;
-			/* right:-100%; */
-			top:0;
-			bottom:0;
-			overflow: scroll;
-			height:100vh;
-			animation:comeRight 0.4s linear 0.2s
-		}
-		@keyframes comeRight {
-		from{
-			right:-100%;
-		}
-		to{
-			right:0
-		}
-	}
-		#flatMenuWrapper ul{
-			height:100%;
 
-		}
-		#flatMenu{
-			display: flex;
-			align-items: flex-start;
-			max-height: max-content;
-		}
-		ul{
-			display:flex;
-			flex-direction:column;
-			align-items: flex-end;
-			justify-content: flex-start;
-			max-height: 100%;
-			flex-wrap: nowrap;
-			height:100%
-		}
-		li{
-			height: max-content;
-			line-height: 3em;
-			width:100%;
-			text-align:right
-		}
-		li:nth-child(odd)
-		{
-			border-left: 0
-		}
-		li:nth-child(even)
-		{
-			border-left: 0
-		}
 
-	}
 </style>
 
 <script>
@@ -199,20 +132,40 @@
 				'toggleSubMenu'
 			]),
 			prevent(e){
-				console.log(e)
 				e.stopPropagation();
 				e.preventDefault();
 				
 				
 			},
 			toggleOverFlow(){
+	
 				this.toggleBodyOverFlow()
+			},
+			openMySubMenu(e){
+				const parentEl=e.target.parentNode
+				const next=parentEl.nextElementSibling
+				const allSubs=document.querySelectorAll('.subMenu')
+				allSubs.forEach( sub=>{
+					sub.style.height=0
+				});
+				const height = getComputedStyle(next).height
+				console.log(height )
+				if(height=="0px"){
+					next.style.transition = "all 0.4s linear"
+					next.style.height = 'max-content'
+				}else{
+					next.style.height = 0
+				}
+				
+				console.log(parentEl,)
 			}
 
 		},
 		mounted(){
-			this.adjustFromTop(document.querySelector("#flatMenuWrapper"))
+			const menuWrapper=document.querySelector("#flatMenuWrapper")
+			this.adjustFromTop(menuWrapper)
 			this.toggleBodyOverFlow('hidden')
+			menuWrapper.style.right="0"
 			window.addEventListener("resize",()=>{
 				if(window.innerWidth>801)
 				{

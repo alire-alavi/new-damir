@@ -3,17 +3,18 @@
 		<div id="topOfIndex">
 			<div id="topOfIndexWrapper">
 				<slider></slider>
-				<categorie></categorie>
+				<categorie :mainCats="JSON.parse(main_categories)"></categorie>
 				
 			</div>
 			
 		</div>
 		<flip-card></flip-card>
+
 		<!-- <expanding-card></expanding-card> -->
 		
 		<!-- <extra-sign-up></extra-sign-up> -->
 		<div id="allCards" class='shouldCollapse maxIs'>
-			<card cardTitle="بیشترین کلیک شده" descs='فلان لان فلان خیلی فلا هی فلان بازم فلان' :products='getProducts()'></card>
+			<card cardTitle="بیشترین کلیک شده" descs='فلان لان فلان خیلی فلا هی فلان بازم فلان' :products="JSON.parse(products)"></card>
 			
 		</div>
 		<div class="digiCardIndex shouldCollapse maxIs">
@@ -40,11 +41,7 @@
 			expandingCard
 		},
 		props:['products','main_categories','posts'],
-		data(){
-			return{
-				products:[{desc:'محصل فلانئ ئنیسئب ئنئ ثنصئب نئنئ ئن ئنئنئنئنئنئنئنئنئنئنئن و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"},{desc:'محصل فلان و فلان وفلان',url:"/images/a.jpg"}]
-			}
-		},
+
 		methods:{
 			getProducts(){
 				return JSON.stringify(this.products)
