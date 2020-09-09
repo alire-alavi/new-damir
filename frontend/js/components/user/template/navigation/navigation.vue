@@ -37,9 +37,9 @@
 
 			</div>
 		</transition>
-		<transition name='toggleSubMenu' mode='out-in'>
+		<!-- <transition name='toggleSubMenu' mode='out-in'> -->
 			<flat-menu v-if='checkSubMenuIsOpen'></flat-menu>
-		</transition>
+		<!-- </transition> -->
 	</div>
 
 

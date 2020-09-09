@@ -44,9 +44,6 @@
 	#flatMenu{
 		display:flex;
 		justify-content: center;
-
-	}
-	.overLay{
 		position: absolute;
 		z-index:669;
 		top:0;
@@ -66,7 +63,6 @@
 		display:flex;
 		flex-wrap: nowrap;
 		width:max-content;
-		right:0;
 		top:0;
 		bottom:0;
 		overflow: scroll;
@@ -141,7 +137,7 @@
 	@media (max-width: 924px){
 		#flatMenuWrapper{
 			width:max-content;
-			right:0;
+			/* right:-100%; */
 			top:0;
 			bottom:0;
 			overflow: scroll;
