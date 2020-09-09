@@ -118,17 +118,17 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class CustomRegisterSerializer(RegisterSerializer):
-    ROLE_CHOICES = (
-        ('خریدار', 'خریدار'),
-        ('فروشنده', 'فروشنده'),
-        ('هر دو', 'هر دو'),
-    )
-    role = serializers.ChoiceField(choices=ROLE_CHOICES)
+    # ROLE_CHOICES = (
+    #     ('خریدار', 'خریدار'),
+    #     ('فروشنده', 'فروشنده'),
+    #     ('هر دو', 'هر دو'),
+    # )
+    # role = serializers.ChoiceField(choices=ROLE_CHOICES)
 
 
     class Meta:
         model = User
-        fields = ('email', 'username', 'password', 'role')
+        fields = ('email', 'username', 'password')
 
     def get_cleaned_data(self):
         return {
@@ -136,14 +136,14 @@ class CustomRegisterSerializer(RegisterSerializer):
             'password1': self.validated_data.get('password1', ''),
             'password2': self.validated_data.get('password2', ''),
             'email': self.validated_data.get('email', ''),
-            'role': self.validated_data.get('role', ''),
+            # 'role': self.validated_data.get('role', ''),
         }
 
     def save(self, request):
         adapter = get_adapter()
         user = adapter.new_user(request)
         self.cleaned_data = self.get_cleaned_data()
-        user.role = self.cleaned_data.get('role')
+        # user.role = self.cleaned_data.get('role')
         user.save()
         adapter.save_user(request, user, self)
         return user
@@ -151,15 +151,26 @@ class CustomRegisterSerializer(RegisterSerializer):
 
 
 class TokenSerializer(serializers.ModelSerializer):
-    user_role = serializers.SerializerMethodField()
+    # user_role = serializers.SerializerMethodField()
 
     class Meta:
         model = Token
-        fields = ('key', 'user', 'user_role')
+        fields = ('key', 'user')
 
-    def get_user_role(self, obj):
-        serializer_data = UserSerializer(obj.user).data
-        role = serializer_data.get('role')
+    # def get_user_role(self, obj):
+    #     serializer_data = UserSerializer(obj.user).data
+    #     # role = serializer_data.get('role')
+    #     return {
+    #         # 'role': role,
+    #     }
+
+
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField()
+    password = serializers.CharField()
+
+    def get_cleaned_data(self):
         return {
-            'role': role,
+            'username': self.validated_data.get('username', ''),
+            'password': self.validated_data.get('password', ''),
         }

@@ -1,6 +1,7 @@
 import json
 import os
 
+from django.contrib.auth import authenticate, login
 from django.http import QueryDict
 from django.views.generic import View
 from django.shortcuts import render, redirect
@@ -12,7 +13,6 @@ from website.settings import BASE_DIR
 from django.core.files.uploadhandler import FileUploadHandler
 # from django.
 
-from react.render import render_component
 
 #COMPONENTS
 from products.models import Product

@@ -12,6 +12,9 @@ from rest_framework.response import Response
 from .serializers import CategorySerializer, CategoryDetailSerializer, VariationDetailSerializer, MainCategorySerializer
 from .models import Category, Variation, CategoryVariation, MainCategory
 
+from products.models import Product
+from products.serializers import ProductDetailSerializer
+
 """
 ################################################################
             ##          ############         ##
@@ -63,5 +66,14 @@ def category_list_view(request):
     }
     return render(request, 'views/template/header.html', context)
 
+def by_category(request, name):
+    category = Category.objects.get(title=name)
+    products = Product.objects.filter(category=category)
+    serialized_products = ProductDetailSerializer(products, many=True).data
+    json_products = json.dumps(serialized_products)
+    context = {
+        'products' : json_products,
+    }
+    return render(request, 'views/products.html', context)
 
 

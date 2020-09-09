@@ -1,5 +1,4 @@
 from django.db import models
-from ckeditor_uploader.fields import RichTextUploadingField
 from categories.models import Category
 from users.models import User
 from django.contrib.contenttypes.fields import GenericRelation
@@ -8,6 +7,7 @@ from hitcount.models import HitCount, HitCountMixin
 from django.template.defaultfilters import slugify
 from django.shortcuts import reverse
 
+from tinymce.models import HTMLField
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -23,7 +23,7 @@ class Comment(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=1024, verbose_name="نام پست")
     short_description = models.TextField(verbose_name="توضیح پیش نمایش")
-    content = RichTextUploadingField(verbose_name="متن پست")
+    content = HTMLField(verbose_name="متن پست")
     timestamp = models.DateField(auto_now=True, verbose_name="تاریخ ثبت دست")
     thumbnail = models.ImageField(verbose_name="تصویر پست")
     author = models.ForeignKey(User, on_delete=models.CASCADE)

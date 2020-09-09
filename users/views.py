@@ -2,16 +2,24 @@ import json
 
 from .models import ProducerProfile, Profile
 from .forms import ProducerProfileForm, CustomerProfileForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
+from django.contrib.auth import authenticate, login, logout
 
 from django.http import JsonResponse
-
+from django.contrib import messages
 from products.models import Product
 
+from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from rest_framework import  status
-from .serializers import ProducerProfileSerializer, ProfileSerializer, ProducerProfileDetailSerializer
+from .serializers import (
+    ProducerProfileSerializer, 
+    ProfileSerializer, 
+    ProducerProfileDetailSerializer, 
+    UserSerializer, RegisterSerializer,
+    LoginSerializer,
+)
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.generics import (
@@ -21,8 +29,9 @@ from rest_framework.generics import (
 from rest_framework.views import APIView
 from django.contrib.auth import login
 from rest_auth.registration import views
-
 from .permissions import IsOwnerOrReadOnly, IsProducer
+
+from users.models import User
 """
 ################################################################
             ##          ############         ##
@@ -146,3 +155,60 @@ def customer_profile_completion(request):
 
     except ObjectDoesNotExist:
         return Http404("not found")
+
+
+
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get('username', '').strip()
+        password = request.POST.get('password', '').strip()
+        if username and password:
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                message = {"messages": "شما با موفقیت وارد شدید"}
+                json_message = json.dumps(message)
+                return redirect(reverse('pages:index', kwargs=json_message))
+            else: 
+                message = {"messages" : "رمز عبور یا نام کاربری اشتباه است"}
+                json_message = json.dumps(message)
+                return redirect(reverse('users:login', kwargs=json_message))
+        else:
+            message = {"messages" : "رمز عبور یا نام کاربری اشتباه است"}
+            json_message = json.dumps(message)
+            return redirect(reverse('users:login', kwargs=json_message))
+
+
+
+def register_view(request):
+    if request.method == "POST":
+        username = request.POST.get('username', '').strip()
+        email = request.POST.get('email', '').strip()
+        password1 = request.POST.get('password1', '').strip()
+        password2 = request.POST.get('password2', '').strip()
+        user_q = User.objects.filter(username=username)
+        email_q = User.objects.filter(email=email)
+        if user_q.exists():
+            message = {"messages" : "این نام کاربری قبلا ثبت شده است"}
+            return redirect('accounts:signup')
+        elif email_q.exists():
+            message = {"messages" : "این ایمیل قبلا ثبت شده است"}
+            return redirect('accounts:signup')
+        elif password1 != password2:
+            message = {"messages" : "پسورد شما همخوانی ندارد"}
+            return redirect('../../accounts/signup/')
+        else:
+            user = User.objects.create(
+                username=username,
+                email= email,
+                password= password1,
+                is_active= True,
+                is_staff=False,
+                is_superuser=False
+            )
+            user.save()
+            login(request, user)
+            return redirect('pages:index')
+            
+    return redirect('pages:index')

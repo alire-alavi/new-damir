@@ -2,11 +2,13 @@ from django.db import models
 from django.utils.text import slugify
 from django.db.models.signals import pre_save, post_save
 from django.utils.translation import ugettext_lazy as _
-from ckeditor_uploader.fields import RichTextUploadingField
+
+from tinymce.models import HTMLField
 
 from .custom_fields import IntegerRangeField
 from users.models import ProducerProfile, Profile, User
 from categories.models import Category
+
 
 ########################################################################################
 """
@@ -29,7 +31,7 @@ class Product(models.Model):
     product_image = models.ImageField(null=True, blank=True)
     slug = models.SlugField(null=True, blank=True)
     stock = models.IntegerField(default=1, verbose_name='موجودی')
-    description = models.TextField() #tiny-mce will be added  on the next run
+    description = HTMLField(verbose_name="توضیحات محصول")
     minimum_order = models.CharField(max_length=32, verbose_name='حداقل تعداد جهت سفارش', null=True, blank=True)
     payment_type = models.CharField(max_length=32, verbose_name='روش پرداخت', null=True, blank=True)
     packing = models.CharField(max_length=32, verbose_name="بسته بندی", null=True, blank=True)
@@ -40,7 +42,6 @@ class Product(models.Model):
     samples = models.CharField(max_length=24, verbose_name="ارائه نمونه", null=True,
                                 blank=True, choices=SAMPLE_CHOICES)
     remarks = models.TextField(verbose_name="ملاحظات", null=True, blank=True)
-    post = RichTextUploadingField(null=True, blank=True)
 
 
     def __str__(self):

@@ -39,7 +39,6 @@ urlpatterns = [
     path('products/', include('products.urls', namespace="products")),
     path('merchandise/', include('merchandise.urls', namespace="merchandise")),
     path('blog/', include('blog.urls', namespace="blog")),
-    path('ckeditor', include('ckeditor_uploader.urls')),
 ]
 
 if settings.DEBUG:

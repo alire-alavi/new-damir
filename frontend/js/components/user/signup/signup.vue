@@ -5,7 +5,7 @@
                 <p>ثبت نام</p>
             </div>
             <div id="signupForm">
-                <form action="/accounts/signup/" method="post">
+                <form action="/users/register/" method="post" novalidate>
                     <div id="email" class="inputs">
                         <div class='formInputsWrapper'>
                                 <input autocomplete="off" name="email" @blur='focusOut($event),startValidation("email",$event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userEmail' type="text">
@@ -32,7 +32,7 @@
                     <div id="passwordConf" name="password2" class="inputs">
                         <div class='formInputsWrapper'>
                                  
-                                <input autocomplete="off" @blur='focusOut($event),checkConfirmation($event)' id='userPasswordCond' class='inputWithLabelThatShouldStay signupFormInputs' name='passConf'  type="password">
+                                <input autocomplete="off" @blur='focusOut($event),checkConfirmation($event)' id='userPasswordCond' class='inputWithLabelThatShouldStay signupFormInputs' name='password2'  type="password">
                                 <label class='comeUpLabel' for="userPasswordCond">رمز را دوباره وارد کنید</label>
                                 
                         </div>

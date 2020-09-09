@@ -46,9 +46,6 @@ INSTALLED_APPS = [
 
     'tinymce',
     'hitcount',
-    'ckeditor',
-    'ckeditor_uploader',
-    'react',
 
 
 ]
@@ -87,23 +84,23 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'damir',
-#         'USER': 'jeremih',
-#         'PASSWORD': 'hellomother',
-#         'HOST': 'localhost',
-#         'PORT': '',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'damir',
+        'USER': 'jeremih',
+        'PASSWORD': 'hellomother',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 
 # Password validation
@@ -165,32 +162,32 @@ REST_AUTH_SERIALIZERS = {
     'TOKEN_SERIALIZER': 'users.serializers.TokenSerializer'
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+
+    ),
+}
+
 # REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': (
-#         'rest_framework.permissions.AllowAny',
-#     ),
-#     'DEFAULT_AUTHENTICATION_CLASSES': (
-#         'rest_framework.authentication.TokenAuthentication',
-#
-#     ),
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework.authentication.BasicAuthentication',
+#         'rest_framework.authentication.SessionAuthentication',
+#     ]
 # }
 #
-# # REST_FRAMEWORK = {
-# #     'DEFAULT_AUTHENTICATION_CLASSES': [
-# #         'rest_framework.authentication.BasicAuthentication',
-# #         'rest_framework.authentication.SessionAuthentication',
-# #     ]
-# # }
-# #
-# #
-# #
-# # AUTHENTICATION_BACKENDS = [
-# #     # Needed to login by username in Django admin, regardless of `allauth`
-# #     'django.contrib.auth.backends.ModelBackend',
-# #
-# #     # `allauth` specific authentication methods, such as login by e-mail
-# #     'allauth.account.auth_backends.AuthenticationBackend',
-# # ]
+#
+#
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    # 'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 
 SITE_ID = 1
@@ -205,10 +202,11 @@ STATICFILES_DIRS = [
 ]
 
 
+
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
-ACCOUNT_FORMS = {'signup': 'users.forms.CustomSignUpForm'}
+# ACCOUNT_FORMS = {'signup': 'users.forms.CustomSignUpForm'}
 
 # TINYMCE_JS_URL = os.path.join(MEDIA_URL, "/tinymce/tinymce.min.js")
 # TINYMCE_COMPRESSOR = False
