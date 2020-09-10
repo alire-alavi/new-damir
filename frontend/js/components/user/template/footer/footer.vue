@@ -2,20 +2,8 @@
 	<div id="footer">
 		
 		<div id="footerWrapper" class='maxIs'>
-			<div class="newsTake">
-				<form>
-					<p>برای دریافت اخرین قیمت ها ایمیل خود را وارد کنید</p>
-					<input autocomplete="off" type="text" placeholder="example@gmail.com" name="email">
-					<button class='submit'>ثبت</button>
-				</form>
-			</div>
-			<div class="aboutUs">
-				<a href="#">در باره  ما</a>
-			</div>
-			<div class="phoneNum">
-				<p>جهت دریافت اطلاعات با مما تماس بگیرید:</p>
-				<p>021-35791862</p>
-			</div>
+			<mega></mega>
+			<contacts></contacts>
 		</div>
 	</div>
 
@@ -32,9 +20,8 @@
 	}
 	#footerWrapper{
 		display: flex;
-		width: 95%;
-		padding:50px;
-
+		padding:10px;
+		width:100%;
 		justify-content: space-between;
 	}
 	form input,form button
@@ -90,8 +77,13 @@
 
 
 <script>
+	import mega from "./menu.vue"
+	import contacts from "./contacts.vue"
 	
 	export default{
-
+		components:{
+			mega,
+			contacts
+		}
 	}
 </script>

@@ -2,12 +2,13 @@
 	<div id="index" class='mainItemPerPage'>
 		<div id="topOfIndex">
 			<div id="topOfIndexWrapper">
-				<slider></slider>
+				 <!-- <slider></slider> -->
 				<categorie :mainCats="JSON.parse(main_categories)"></categorie>
 				
 			</div>
 			
 		</div>
+
 		<flip-card></flip-card>
 
 		<!-- <expanding-card></expanding-card> -->
@@ -58,6 +59,7 @@
 	}
 	#topOfIndex{
 		background: #ffffff;
+		width:100%;
 	}
 	#topOfIndexWrapper{
 		display:flex;
