@@ -28,11 +28,11 @@
     }
     .singleDigicardWrapper{
         margin:5px;
-        width:350px        
+        width:250px        
     }
     img{
         border-radius: 16px;
-        width:100%
+        width:250px
     }
     @media (max-width:666px){
         img{

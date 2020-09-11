@@ -170,6 +170,7 @@
     }
     .parentLi{
         position: relative;
+        font-size:20px
     }
     .parentLi:hover .subMenu{
         display:block

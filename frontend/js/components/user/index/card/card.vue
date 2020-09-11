@@ -2,7 +2,7 @@
 	<div class="card maxIs">
 		
 		<div class="splide">
-			<div class="titleCard"><p>{{cardTitle}}</p></div>
+			<div class="titleCard"><p>{{cardTitle || 'بیشترین کلیک شده'}}</p></div>
 			<div class="splide__track">
 				<ul class="splide__list">
 					<li class="splide__slide" v-for="(p,index) in products" :key="index">
@@ -274,6 +274,11 @@
 
 
 <style scoped>
+.titleCard p{
+	font-size:24px;
+	font-weight: 100;
+	margin:10px;
+}
 	.cardWrapper{
 		display: flex;
 		overflow-y: hidden;
@@ -288,7 +293,7 @@
 	}
 	.card{
 		box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.2);
-		border-top-left-radius: 20px;
+		background:#ffffff;
 		margin-top:20px;
         overflow: auto;
         width:100%;
@@ -349,6 +354,9 @@
 	justify-content: center;
 	margin-top:20px;
 	margin-bottom:10px
+}
+.splide__track{
+	margin-top:20px
 }
 .splide{
 	margin-top:3px

@@ -1,13 +1,16 @@
 <template>
   <div id="index" class="mainItemPerPage">
-    <div id="topOfIndex">
+    <div id="topOfIndex" class="shouldCollapse">
       <div id="topOfIndexWrapper">
-        <!-- <slider></slider> -->
+        <slider></slider>
         <categorie :mainCats="JSON.parse(main_categories)"></categorie>
       </div>
     </div>
+	<div class="shouldCollapse">
+		<flip-card></flip-card>
+	</div>
 
-    <flip-card></flip-card>
+    
 
     <!-- <expanding-card></expanding-card> -->
 
@@ -55,6 +58,9 @@ export default {
 </script>
 
 <style>
+.shouldCollapse{
+	width:90% !important;
+}
 .digiCardIndex {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -133,6 +139,9 @@ export default {
   #sideSliderCats {
     display: none;
   }
+  .shouldCollapse{
+	width:100%;
+}
 }
 @media (max-width: 800px) {
   #topOfIndexWrapper {

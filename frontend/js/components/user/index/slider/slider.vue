@@ -150,7 +150,7 @@
 	}
 	#slider{
 		position:relative;
-		width:688px;
+		width:800px;
 		max-height:max-content;
 		background-color: #ffffff
 	}

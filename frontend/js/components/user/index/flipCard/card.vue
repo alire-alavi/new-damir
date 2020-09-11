@@ -26,8 +26,8 @@
 }
 .flip-card {
   background-color: transparent;
-  min-width: 300px !important;
-  height: 300px;
+  min-width: 250px !important;
+  height: 250px;
   padding: 5px;
 }
 
