@@ -10,7 +10,7 @@
                         <div class="productImgAndOther">
                             <div class="productImg">
                                 <img class='photo' src="/images/b.jpg" alt="">
-                                <!-- <div class="productImage"></div> -->
+                               <!--  <div class="productImage"></div> -->
                                 <div @click='zoomIn()'><img class='zoomSign' src="/images/mag.png" alt=""><p>بزرگنمایی</p></div>
                                 <div class='numbers'><p>مانده:<span>ناموجود</span></p></div>
                             </div>
@@ -105,7 +105,7 @@
 </template>
 
 <script>
-import ImageZoom from 'js-image-zoom'
+// import ImageZoom from 'js-image-zoom'
 import starRating from 'vue-star-rating'
     export default {
         components:{

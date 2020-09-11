@@ -2,7 +2,7 @@
 	<div id="flatMenu" @click="toggleSubMenu(),toggleOverFlow()">
 		<div id="flatMenuWrapper" @click='prevent'>
 			<ul>
-			    <li>	
+			    <li class="parentLi">	
 			    	<div class="link" @click="openMySubMenu($event)">
 			    		
 			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(180deg)"></path></svg>
@@ -18,7 +18,7 @@
 			    		<li>زیر دسته یک</li>
 			    	</ul>
 			    </li>
-			    <li>
+			    <li class="parentLi">
 			    	<div class="link" @click="openMySubMenu($event)">
 			    		
 			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(270deg)"></path></svg>
@@ -32,7 +32,7 @@
 			    		<li>زیر دسته یک</li>
 			    	</ul>
 				</li>
-			    <li>
+			    <li class="parentLi">
 			    	<div class="link" @click="openMySubMenu($event)">
 			    		
 			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(270deg)"></path></svg>
@@ -46,13 +46,18 @@
 			    		<li>زیر دسته یک</li>
 			    	</ul>
 				</li>
-			    <li>
+			    <li class="parentLi">
 			    	<div class="link" @click="openMySubMenu($event)">
 			    		
 			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(270deg)"></path></svg>
 			    		<p >دسته 1</p>
 			    	</div>
 			    	<ul class="subMenu">
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
 			    		<li>زیر دسته یک</li>
 			    		<li>زیر دسته یک</li>
 			    		<li>زیر دسته یک</li>
@@ -80,6 +85,7 @@
 		width:max-content;
 		background:#f6f6f4;
 		height:100vh;
+		/*height: 100%;*/
 		z-index:670;
 		right:-100%;
 		width:max-content;
@@ -146,15 +152,10 @@
 			},
 			openMySubMenu(e){
 				let next
-				const parentEl=e.target.parentNode
-				if(e.target.classList.contains("link"))
-				{
-					next=e.target.nextElementSibling
-				}else{
-					next=e.target.closest('.link')
+				const parentEl=e.target.closest(".parentLi")
+				const scg=parentEl.querySelector("svg")
+				next=parentEl.childNodes[2]
 
-				}
-				console.log("next",next);
 				next.style.transition = "all 0.5s ease-in-out";
 
 				
@@ -169,18 +170,22 @@
 					sub.style.height='0px'
 				});
 				if(height=="0px"){
-					next.style.height  = '200px'
+					next.style.height  =`${(next.querySelectorAll('li').length+1)*42}px`
 				}else{
 					next.style.height = '0px'
 				}
 				
 				
+			},
+			rotateArrow(el){
+				el.style.transition = 'all 0.5s ease-in-out'
+				el.style.transform="rotate(180deg)"
 			}
 
 		},
 		mounted(){
 			const menuWrapper=document.querySelector("#flatMenuWrapper")
-			this.adjustFromTop(menuWrapper)
+			this.adjustFromTop(menuWrapper,false)
 			this.toggleBodyOverFlow('hidden')
 			menuWrapper.style.right="0"
 			window.addEventListener("resize",()=>{

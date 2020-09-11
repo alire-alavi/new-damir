@@ -1,11 +1,9 @@
 <template>
-<!-- Generator: Adobe Illustrator 24.1.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	
+<div>
+	<svg version="1.1" id="Layer_1" x="0px" y="0px"
 	 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#117BB8;}
-	.st1{fill:#FFFFFF;}
-</style>
+
 <g id="XMLID_1433_">
 	<path id="XMLID_1439_" class="st0" d="M99.8,196.4L99.8,196.4c-53.13,0-96.2-43.07-96.2-96.2l0,0C3.6,47.07,46.67,4,99.8,4l0,0
 		c53.13,0,96.2,43.07,96.2,96.2l0,0C196,153.33,152.93,196.4,99.8,196.4z"/>
@@ -21,5 +19,13 @@
 	</g>
 </g>
 </svg>
-
+</div>
 </template>
+
+<style scoped>
+	.st0{fill:#117BB8;}
+	.st1{fill:#FFFFFF;}
+	svg{
+	width:40px;
+}
+</style>

@@ -1,11 +1,9 @@
 <template>
-<!-- Generator: Adobe Illustrator 24.1.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<div>
+	
+<svg version="1.1" id="Layer_1" x="0px" y="0px"
 	 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#57F676;}
-	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-</style>
+
 <g id="XMLID_110_">
 	<path id="XMLID_1108_" class="st0" d="M100,199L100,199c-54.68,0-99-43.65-99-97.5v0C1,47.65,45.32,4,100,4l0,0
 		c54.68,0,99,43.65,99,97.5v0C199,155.35,154.68,199,100,199z"/>
@@ -26,4 +24,15 @@
 </g>
 </svg>
 
+</div>
+
 </template>
+
+
+<style scoped>
+svg{
+	width:40px;
+}
+	.st0{fill:#57F676;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+</style>

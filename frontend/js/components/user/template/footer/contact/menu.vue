@@ -69,7 +69,7 @@
 		background: #f6f6f4
 	}
 	.singleMega{
-		margin:10px;
+		margin:30px;
 	}
 	.headMega{
 		font-weight: bold;

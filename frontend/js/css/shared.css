@@ -9,7 +9,7 @@ html {
 
 @font-face {
 	font-family: yekan;
-	src: url(/yekan.ttf);
+	src: url(/static/yekan.ttf);
 }
 
 body {
@@ -124,7 +124,7 @@ select:focus {
 	color: rgb(206, 30, 30) !important;
 	font-size: 17pt;
 	margin-top: 5px;
-	visibility: hidden;
+	display: none;
 }
 
 .maxIs {
@@ -165,4 +165,8 @@ label.stay {
 	transition: .15s ease-out all;
 	position: absolute;
 	right: 1em;
+}
+
+.submit{
+	margin-top:5px;
 }

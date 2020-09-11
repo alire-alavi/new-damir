@@ -1,11 +1,11 @@
 <template>
-	<div class="card">
+	<div class="card maxIs">
 		
 		<div class="splide">
 			<div class="titleCard"><p>{{cardTitle}}</p></div>
 			<div class="splide__track">
 				<ul class="splide__list">
-					<li class="splide__slide" v-for="(p,index) in products">
+					<li class="splide__slide" v-for="(p,index) in products" :key="index">
 						<div class="singleSlide">
 							<div class="singleSlideWrapper">
 								<div class="img">
