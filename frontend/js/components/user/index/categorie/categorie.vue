@@ -12,7 +12,7 @@
                             <div class="subTitleWrapper">
                                 <div class="SubTitle"><p>{{c.title}}</p></div>
                                 <ul>
-                                    <li v-for="sub in c.subs"><a href="#">{{sub.title}}</a></li>
+                                    <li v-for="sub in c.subs"><a :href="getUrl(sub.title)">{{sub.title}}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -95,6 +95,11 @@
         props:['mainCats'],
         created(){
             console.log("cats",this.mainCats)
+        },
+        methods:{
+            getUrl(url){
+                return `/categories/${url}`
+            }
         }
     }
 </script>

@@ -17,9 +17,9 @@
 			<div id="slicer"></div>
 
 			<div id="thirdRow">
-				<p>شرایط استفاده</p>
-				<p>حریم خصوصی</p>
-				<p>تقشه سایت</p>
+				<p><a href="#">شرایط استفاده</a></p>
+				<p><a href="#">حریم خصوصی</a></p>
+				<p><a href="#">نقشه سایت</a></p>
 				
 			</div>
 			
@@ -35,6 +35,10 @@
 
 
 <style scoped>
+#thirdRow a{
+	font-size: 15px;
+    font-weight: 800;
+}
 .copy{
 	text-align:center
 }

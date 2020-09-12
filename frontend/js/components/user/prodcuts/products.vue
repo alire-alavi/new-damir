@@ -186,6 +186,7 @@ img{
     import consulate from "./consulate.vue"
     import filtering from "./filtering.vue"
      import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
+     import {toggleBodyOverFlow} from "../../user/mixIns/toggleBodyOverFlow.js"
     export default{
         components:{
             consulate,
@@ -218,10 +219,11 @@ img{
             showConsulate(e){
                 const el=e.target;
                 const parent=el.closest(".singleProduct")
-                const consulate=parent.querySelector(".consulateWrapper")
-                console.log(parent)
+                const consulate=parent.querySelector(".consulate")
+                const wrap=consulate.querySelector(".consulateWrapper")
                 consulate.style.display="flex"
-                this.adjustFromTop(consulate,false)
+                this.adjustFromTop(wrap,false,true)
+                this.toggleBodyOverFlow("hidden")
                 
             }
         }

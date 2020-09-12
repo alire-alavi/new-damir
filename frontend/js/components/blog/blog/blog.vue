@@ -1,6 +1,6 @@
 <template>
   <div id="blog">
-      <div class="allCatsForBlog" @click='closeMenu(),toggleBodyOverFlow()'>
+      <!-- <div class="allCatsForBlog" @click='closeMenu(),toggleBodyOverFlow()'>
           <div class="allBlogCatsWrapper" @click='preventDef($event)'>
               <ul>
                   <li><a href="#">شرینگ پک</a></li>
@@ -35,12 +35,12 @@
                   <li><a href="#">شرینگ پک</a></li>
               </ul>
           </div>
-      </div>
+      </div> -->
     <div id="blogWrapper">
 
-        <div class="openCatsBtn">
+        <!-- <div class="openCatsBtn">
             <button class='submit' @click.prevent='showCats=true,adjustation()'>دسته بندی موضوعات</button>
-        </div>
+        </div> -->
 
 
 
@@ -54,42 +54,17 @@
       <!-- <consulate></consulate> -->
 
       <div class="blogPostWrapper">
-        <single-post
-          title="َشرینگ پک"
-          descs="شیرینگ پک از کلمه انگلیسی شیرینک به معنای جمع شدن گرفته شده است . در این دستگاه سلفون و فیلم شیرینگ را با حرارت دادن جمع و بسته می‌کنند. به همین دلیل به این نوع عمل بسته بندی شیرینگ می‌گویند."
-          img="/images/l30.jpg"
-        ></single-post>
-        <single-post
-          title="َاب چسب"
-          descs="شیرینگ پک از کلمه انگلیسی شیرینک به معنای جمع شدن گرفته شده است ."
-          img="/images/abchasb.png"
-        ></single-post>
-
-        <single-post
-          title="َاب چسب"
-          descs="شیرینگ پک از کلمه انگلیسی شیرینک به معنای جمع شدن گرفته شده است ."
-          img="/images/abchasb.png"
-        ></single-post>
-        <single-post
-          title="َاب چسب"
-          descs="شیرینگ پک از کلمه انگلیسی شیرینک به معنای جمع شدن گرفته شده است ."
-          img="/images/abchasb.png"
-        ></single-post>
-        <single-post
-          title="َاب چسب"
-          descs="شیرینگ پک از کلمه انگلیسی شیرینک به معنای جمع شدن گرفته شده است ."
-          img="/images/abchasb.png"
-        ></single-post>
-        <single-post
-          title="َاب چسب"
-          descs="شیرینگ پک از کلمه انگلیسی شیرینک به معنای جمع شدن گرفته شده است ."
-          img="/images/abchasb.png"
-        ></single-post>
-        <single-post
-          title="َاب چسب"
-          descs="شیرینگ پک از کلمه انگلیسی شیرینک به معنای جمع شدن گرفته شده است ."
-          img="/images/abchasb.png"
-        ></single-post>
+        <div v-for="(p,i) in JSON.parse(posts)" :key="i">
+          <a :href="getSlugn(p)">
+              <single-post
+              :title="p.title"
+              :descs="p.short_description"
+              :author="p.author"
+              :img="p.thumbnail"
+            ></single-post> 
+          </a>          
+          
+        </div>
       </div>
     </div>
   </div>
@@ -104,6 +79,10 @@ export default {
   components: {
     singlePost,
     consulate,
+  },
+  props:['posts'],
+  created(){
+    console.log("posts",JSON.parse(this.posts))
   },
   mixins:[toggleBodyOverFlow,adjustElFromTop],
   data(){
@@ -148,6 +127,9 @@ export default {
         const all=document.querySelector(".allCatsForBlog")
         all.style.display="none"
         this.toggleBodyOverFlow()
+    },
+    getSlugn(p){
+      return `/${p.slug}`
     }
   },
   

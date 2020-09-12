@@ -5,9 +5,12 @@
                 <img :src="img">
             </div>
             <div class="descs">
-                <p>{{getDescs(descs)}}</p>
+                <p>{{title}}</p>
 
-                <p class='timeAndCat'>بسته بندی | مدت زمان خواندن 5 دقیقه</p>
+                <div class="extraDetail">
+                    <p class='timeAndCat'>بسته بندی | مدت زمان خواندن 5 دقیقه</p>
+                <p class="author">نویسنده:{{author.username}}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -15,6 +18,11 @@
 </template>
 
 <style scoped>
+.extraDetail{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end
+}
 
 
 .singleBlogPost{
@@ -22,6 +30,10 @@
     height:400px;
     margin:20px;
     margin-top:40px;
+    transition:all 0.5s
+}
+.singleBlogPost:hover{
+    transform:scale(1.05)
 }
 .singlePostWrapper{
     width:100%;
@@ -51,7 +63,7 @@ img{
     width:100%;
     height:200px;
 }
-.timeAndCat{
+.timeAndCat,.author{
     font-size: 15px;
     font-weight: 800;
 }
@@ -59,7 +71,7 @@ img{
 
 <script>
 export default {
-    props:['title','img','descs'],
+    props:['title','img','descs','author'],
     methods:{
         getDescs(txt){
             return txt.length>100 ? `${txt.slice(0,100)}...` : txt

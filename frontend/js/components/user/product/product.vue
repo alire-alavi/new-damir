@@ -37,24 +37,14 @@
     import technicalDetail from "./technicalDetatil.vue"
     import axios from 'axios'
     export default{
+        props:["porduct"],
         data(){
             return{
                 currentComponent:'productDescs'
             }
         },
         mounted(){
-            axios({
-                method: 'get',
-                headers: { 'Content-Type': 'application/json','Accept':"*/*" },
-                crossDomain: true,
-                url: 'http://rlbapi.pythonanywhere.com/products-api/'
-              }).then(function (response) {
-                console.log(response.data);
-            });
-            // axios.get('http:/\/\rlbapi.pythonanywhere.com/products-api')
-            //     .then(res=>{
-            //         console.log(res.data)
-            //     })
+            console.log(this.product)
         },
         name:"product",
         components:{

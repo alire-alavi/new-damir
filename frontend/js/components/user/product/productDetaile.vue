@@ -1,37 +1,12 @@
 <template >
         <div id="productDetail">
-            <div class="productConsulate" @click='closeConsulate'>
-                <div class="productConsulateWrapper" @click="preventDefault($event)">
-                    <form action="">
-                        <div id="email" class="inputs">
-                            <div class='formInputsWrapper'>
-                                    <input autocomplete="off" name="email" @blur='focusOut($event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userName' type="text">
-                                    <label class='comeUpLabel' for="userName">نام</label>                                                                  
-                            </div>
-                        </div>
-                        <div id="email" class="inputs">
-                            <div class='formInputsWrapper'>
-                                    <input autocomplete="off" name="email" @blur='focusOut($event),startValidation("email",$event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userPhone' type="text">
-                                    <label class='comeUpLabel' for="userPhone">شماره تلفن</label>                                                                  
-                            </div>
-                            <p class="inputError">فرمت شماره اشتباه است</p> 
-                        </div>
-                        <div class="sendReq">
-                            <button @click.prevent="sendPriceRequest" class="submit">ثبت</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-
-
 
 
             
             
             <div class="productDetailWrapper">
                 <div class="prodcuctName">
-                    <p>بیل مکانیکی</p>
+                    <h1>بیل مکانیکی</h1>
                 </div>
                 <div class="productDetails">
                     <div class="productDetailsWrap">
@@ -55,13 +30,14 @@
                                 <div class="glider-contain">
                                     <div class="glider">
                                         <div><img @click="changeImage($event)" src="/images/1.jpg" alt=""></div>
-                                        <div><img @click="changeImage($event)" src="/images/2.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/ours1.png" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/3.jpg" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/4.jpg" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/1.jpg" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/2.jpg" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/3.jpg" alt=""></div>
-                                        <div><img @click="changeImage($event)" src="/images/4.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/signupBack2.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/abchasb.png" alt=""></div>
                                         <!-- <div><img @click="changeImage($event)" src="/images/ours1.png" alt=""></div> -->
                                     </div>
                                 </div>
@@ -115,45 +91,12 @@
                                     <button class="submit" @click.prevent="getPriceRequest">استعلام قیمت</button>
                                 </div>
                             </div>
-                            <!-- <div class="writeAbleDetaile">
-                                <div class="writeAbleDetaileWrapper">
-                                    <div class="payWayWrapper writeAbleSignleItem">
-                                        
-                                        <div class="sendWayBtns writeAbleSignleItemBtns">
-                                            <button @click='chageneSendWay($event),changeButtonColor($event)' class='selectAbleBtns'>زمینی</button>
-                                            <button @click='chageneSendWay($event),changeButtonColor($event)' class='selectAbleBtns'>هوایی</button>
-                                        </div>
-                                        <div class="writeAbleSignleItemTitle">
-                                            <p>روش ارسال را انتخاب کنید</p>
-                                        </div>
-                                    </div>
-                                    <div class="packTypeWrapper writeAbleSignleItem">
-                                        
-                                        <div class="packTypeBtns writeAbleSignleItemBtns">
-                                            <button @click='changePacketType($event),changeButtonColor($event)' class='selectAbleBtns'>کاغذی</button>
-                                            <button @click='changePacketType($event),changeButtonColor($event)' class='selectAbleBtns'>فلزی</button>
-                                        </div>
-                                        <div class="writeAbleSignleItemTitle">
-                                            <p>بسته بندی</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="payWay writeAbleSignleItem">
-                                        <div class="writeAbleSignleItemBtns">
-                                            <button @click='changePayWay($event),changeButtonColor($event)' class='selectAbleBtns'>حضوری</button>
-                                            <button @click='changePayWay($event),changeButtonColor($event)' class='selectAbleBtns'>انلاین</button>
-                                        </div>
-                                        <div class="writeAbleSignleItemTitle">
-                                            <p>روش پرداخت:</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
             <done-message></done-message>
+            <consulate></consulate>
         </div>
 </template>
 
@@ -161,6 +104,7 @@
 // import ImageZoom from 'js-image-zoom'
 import doneMessage from "../../user/template/doneMessage/doneMessage.vue"
 import starRating from 'vue-star-rating'
+import consulate from "../prodcuts/consulate.vue"
 import {keepStay} from "../../user/mixIns/keepStay.js"
 import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
     export default {
@@ -174,7 +118,8 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
         mixins:[keepStay,adjustElFromTop],
         components:{
             starRating,
-            doneMessage
+            doneMessage,
+            consulate
         },
         data(){
             return{
@@ -254,10 +199,6 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
                 },5000)
 
             },
-            preventDefault(e)
-            {
-                e.stopPropagation()
-            },
             closeConsulate(){
                 const consulet=document.querySelector(".productConsulate")
                 consulet.style.display="none"
@@ -304,6 +245,7 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
 .glider img{
     user-select: inherit; 
     pointer-events: all !important;
+    height:150px;
 }
 .inputs{
     margin-top:5px
@@ -368,7 +310,12 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
     }
     .productImg img{
         width: 100%;
+        
         /* box-shadow:2px 2px 50px grey */
+    }
+    .photo{
+        height:400px !important;
+        object-fit:contain;
     }
     .productImg{
         display:flex;
@@ -401,7 +348,7 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
         text-align:left;
         width:100%;
     }
-    .prodcuctName p{
+    .prodcuctName h1{
         width:100%;
         text-align:right;
         padding-bottom: 10px;
@@ -532,7 +479,7 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
         width:100%;
         display:flex;
         flex-direction: column;
-    }
+        }
     
     }
 
