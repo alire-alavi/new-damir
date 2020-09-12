@@ -164,11 +164,11 @@
 .singleProduct{
     width:23%;
     margin:10px;
-    width:240px
+    width:300px
 }
 img{
-    height:240px;
-    width:240px;
+    height:300px;
+    width:300px;
     
 }
 .title{
@@ -218,7 +218,7 @@ img{
             showConsulate(e){
                 const el=e.target;
                 const parent=el.closest(".singleProduct")
-                const consulate=parent.querySelector(".consulate")
+                const consulate=parent.querySelector(".consulateWrapper")
                 console.log(parent)
                 consulate.style.display="flex"
                 this.adjustFromTop(consulate,false)
