@@ -1,43 +1,202 @@
 <template>
-	<div class="card">
-		<div class="titleCard"><p>{{cardTitle}}</p></div>
-		<div @click='goToLeft()' class="left"><img src="/images/left.png" alt=""></div>
-		<div @mousemove="mouseMove($event)" @mouseup="mouseup($event)" @mouseleave="mouseleave($event)" @mousedown="mouseDown($event)" class="cardWrapper">
-			
-				<div class="cardItem" :id='index' v-for='(p,index) in JSON.parse(products)' :key='index'>
-					<div class="productImage">
-						<img :src="getUrl(p)" alt="">
-					</div>
-					<div class="productTitle">
-						<a href="#"><p>خط تولید مشاین لباسش شویی تمم اتومات</p></a>
-					</div>
-					<div class="productDesc">
-						<p>{{getDesc(p.desc)}}</p>
-					</div>
-					<div class="productContinue">
-						<a href="#"><button class=continue>ادامه مطلب</button></a>
-					</div>
-				</div>
-				
+	<div class="card maxIs">
+		
+		<div class="splide">
+			<div class="titleCard"><p>{{cardTitle || 'بیشترین کلیک شده'}}</p></div>
+			<div class="splide__track">
+				<ul class="splide__list">
+					<li class="splide__slide" v-for="(p,index) in products" :key="index">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img :src="getImage(p.product_image)" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a class="link" href="#">{{p.title}}</a>
+									</div>
+									<div class="descsP">
+										<p>{{p.description}}</p>
+									</div>
+									<div class="link">
+										<a class="submit">مشاهده</a>
+										<p>{{p.price || 0}}  تومان</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</li>
+					
+					<!-- <li class="splide__slide">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img src="/images/abchasb.png" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a class="link" href="#">اب چسب</a>
+									</div>
+									<div class="descsP">
+										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+									</div>
+									<div class="link">
+										<a class="submit">مشاهده</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</li>
+
+					<li class="splide__slide">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img src="/images/htest2.jpg" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a class="link" href="#">اب چسب</a>
+									</div>
+									<div class="descsP">
+										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+									</div>
+									<div class="link">
+										<a class="submit">مشاهده</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</li><li class="splide__slide">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img src="/images/bandRole.png" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a class="link" href="#">اب چسب</a>
+									</div>
+									<div class="descsP">
+										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+									</div>
+									<div class="link">
+										<a class="submit">مشاهده</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</li>
+					
+					<li class="splide__slide">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img src="/images/abchasb.png" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a class="link" href="#">اب چسب</a>
+									</div>
+									<div class="descsP">
+										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+									</div>
+									<div class="link">
+										<a class="submit">مشاهده</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</li>
+
+					<li class="splide__slide">
+						<div class="singleSlide">
+							<div class="singleSlideWrapper">
+								<div class="img">
+									<img src="/images/htest2.jpg" alt="">
+								</div>
+								<div class="descs">
+									<div class="title">
+										<a class="link" href="#"><p>اب چسب</p></a>
+									</div>
+									<div class="descsP">
+										<p>فلان لان فلان لان للللللللان فلانل الن انل نفنلفننفئ لئفنئ لئنفثنئل </p>
+									</div>
+									<div class="link">
+										<a class="submit">مشاهده</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</li> -->
+				</ul>
+			</div>
 		</div>
-		<div @click='goToRight()' class="right"><img src="/images/left.png" alt=""></div>
 	</div>
 </template>
 <script>	
     export default{
-		props:['cardTitle','descs','products'],
+		props:['products'],
 		data(){
 			return{
 				container:null,
 				isDown:false,
 				startX:null,
-				scrollLeft:null
+				scrollLeft:null,
+				glide:null
+			}
+		},
+		data(){
+			return{
+				perShow:2
 			}
 		},
 		mounted(){
-			this.container=document.querySelector('.cardWrapper')
+			this.container=document.querySelector('.cardWrapper');
+			let per=this.reCalculatePer()
+			const glide=new Splide( '.splide',{
+					type   : 'loop',
+					perPage: per,
+					perMove: 1,
+				} );
+				glide.mount()
+				window.addEventListener("resize",()=>{
+					let pper=this.reCalculatePer()
+					glide.options.perPage=pper
+				})
+				
+				// glide.on('resize',()=>{
+				// 	let per=this.reCalculatePer()
+					
+				// 	glide.options.perPage=per
+				// })
+			
+			
+			
 		},
         methods:{
+			reCalculatePer(){
+				let per=2
+					let width=window.innerWidth
+					if(width>=1100){
+						per=4
+					}
+					else if(width<=1099 && width>=851){
+						per=3
+					}else if(width<=850 && width>=600){
+						per=2
+					}else if(width<=599){
+						per=1
+					}
+					return per
+					
+			},
             getUrl(p){
                 return p.url
             },
@@ -87,6 +246,25 @@
 						window.clearInterval(slideTimer);
 					}
 				}, speed);
+			},
+			getPrice(p){
+				// return "hey"
+				let price=p || p.toString().split("")
+				let c=0
+				const newPrice=[]
+				for (let i=price.length-1;i>0;i--){
+					newPrice.push(price[i])
+					c++
+					if(c==3){
+						newPrice.push(",")
+						c=0
+					}
+				}
+				return newPrice.reverse().join("")
+			},
+			getImage(img){
+				console.log(img)
+				return '/images/کیسه-پر-کنCBE-NWB-300x300.png'
 			}
 		}
     }
@@ -96,46 +274,16 @@
 
 
 <style scoped>
-	.right{
-		right:0;
-	}
-	.left{
-		left:0;
-	}
-	.right,.left{
-		background: rgba(211, 110, 28, 0.801);
-		position:absolute;
-		top:50%;
-		border-radius: 50%;
-		display:flex;
-		justify-content: center;
-		align-items: center;
-		width:45px;
-		height: 30px;
-	}
-	.right{
-		transform: rotate(180deg);
-	}
-	.right img,.left img{
-		width:30px;
-		height:20px;
-	}
-    .titleCard{
-        padding:5px 0 5px 0;
-		background: rgb(60,134,199);
-		padding:10px;
-		color:white;
-		width:max-content;
-		font-size:18pt;
-		border-top-left-radius: 20px;
-		border-top-right-radius: 20px;
-    }
+.titleCard p{
+	font-size:24px;
+	font-weight: 100;
+	margin:10px;
+}
 	.cardWrapper{
 		display: flex;
 		overflow-y: hidden;
         overflow-x: scroll;
 		scrollbar-width: none;
-		border-top:2px solid rgb(33,162,184);
 		margin-top:10px;
 		font-weight: lighter;
 		
@@ -145,8 +293,8 @@
 	}
 	.card{
 		box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.2);
-		border-top-left-radius: 20px;
-		margin-top:20px;
+		background:#ffffff;
+		margin-top:50px;
         overflow: auto;
         width:100%;
 		position: relative;
@@ -154,36 +302,6 @@
 		/* align-items: flex-end; */
 		flex-direction: column;
     }
-    .cardItems{
-        padding:30px
-    }
-	.cardItem{
-		display: flex;
-		flex-direction: column;
-        align-items: center;
-		padding:10px;
-    }
-    
-	.cardItem p{
-		word-break: keep-all;
-	}
-	.productDesc{
-		width: 250px;
-		min-height: 100px;
-		margin-top:5px;
-		
-	}
-	.productTitle{
-		width: 250px;
-		margin-top:5px;
-	}
-	.productTitle p{
-		color:rgb(34, 105, 122)
-	}
-	.productImage{
-		width: 250px;
-		height: 230px;
-	}
 	
 	img{
 		width: 250px;
@@ -197,5 +315,54 @@
 	.cardWrapper:hover{
 		cursor: grabbing;
 	}
+	.singleSlide{
+		width:280px;
+		margin-top:10px;
+	}
+	.link{
+		display: flex;
+    justify-content: space-between;
+    align-items: center;
+	}
+	.singleSlide img{
+		width:280;
+	}
+	.img{
+		display:flex;
+		justify-content: center;
+	}
+	.singleSlide .descsP{
+		height:120px;
+	}
+	.descsP p{
+		color:#707070;
+		font-weight:bold
+	}
+	.splide__slide{
+		padding:10px;
+	}
+	.title{
+		margin-top:5px;
+		margin-bottom:5px;
+		display:flex;
+		justify-content: flex-end;
+	}
+	.splide--draggable>.splide__track>.splide__list>.splide__slide {
+    -webkit-user-select: none;
+    user-select: none;
+    display: flex;
+	justify-content: center;
+	margin-top:20px;
+	margin-bottom:10px
+}
+.splide__track{
+	margin-top:20px
+}
+.splide{
+	margin-top:3px
+
+}
+	
+
 	
 </style>

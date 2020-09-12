@@ -5,9 +5,6 @@
         <img :src="getImg()" alt="Avatar" style="width:300px;height:300px;" />
         <p>{{title}}</p>
       </div>
-      <div class="flip-card-back">
-        <p>{{descs}}</p>
-      </div>
     </div>
   </div>
 </template>
@@ -19,13 +16,6 @@
       getImg() {
         return this.img;
       },
-    },
-    mounted(){
-      // VanillaTilt.init(document.querySelectorAll(".flip-card"), {
-      //   max: 30,
-      //   speed: 400,
-      //   glare:false
-      // });
     }
   };
 </script>
@@ -36,8 +26,8 @@
 }
 .flip-card {
   background-color: transparent;
-  min-width: 300px !important;
-  height: 300px;
+  min-width: 250px !important;
+  height: 250px;
   padding: 5px;
 }
 
@@ -51,11 +41,6 @@
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
 .flip-card-front,
 .flip-card-back {
   position: absolute;
@@ -70,17 +55,7 @@
 }
 
 .flip-card-front {
-  background-color: rgb(56, 56, 56);
-  color: white;
-}
-
-.flip-card-back {
-  background-color: #2980b9;
-  color: white;
-  transform: rotateY(180deg);
-}
-.flip-card-back p {
-  max-width: 80%;
-  text-align: center;
+  background-color: #ffffff;
+  color: black;
 }
 </style>

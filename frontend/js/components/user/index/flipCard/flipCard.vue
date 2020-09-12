@@ -52,7 +52,8 @@
         width:100%;
         display:flex;
         justify-content: center;
-        margin:50px 0;
-        background: #222;
+        /* margin:50px 0; */
+        margin-top:50px;
+        background: #ffffff;
     }
 </style>

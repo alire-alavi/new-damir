@@ -28,14 +28,14 @@
         width: 100%;
         height: 100%;
         overflow: auto;
-        z-index:554;
+        z-index:680;
         background: rgba(0,0,0,0.8);
         transition: all 1s linear;
     }
     .zoomIn img{
         position: absolute;
         z-index:555;
-        max-width:100%;
+        max-width:95%;
         max-height: 700px;
         left: 50%;
         margin-top:100px;

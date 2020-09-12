@@ -1,14 +1,16 @@
 <template>
   <div id="extraSignUp" class='lax'>
-    <img src="/images/signupBack4.jpg" alt="">
-    <div class="overLay"></div>
     <div class="extraSignUpWrapper">
-      <div class="descs">
+
+
+
+       <div class="descs">
         <div class="descsWrapper">
             <p>با ثبت نام در دمیرکو به میلیون ها تامین کننده و خریدار دسترسی داشته باشید </p>
 
         </div>
       </div>
+      
 
       <div class="signUp">
         <div class="signUpWrapper">
@@ -52,6 +54,7 @@
           </form>
         </div>
       </div>
+     
     </div>
   </div>
 </template>
@@ -93,6 +96,7 @@
 #extraSignUp{
     width:100%;
     position: relative;
+    background: #0d2f81
 }
 .signUpWrapper{
     padding:40px;
@@ -103,20 +107,8 @@
     background: rgba(187, 186, 186, 0.678);
     max-width:max-content;
 }
-.overLay{
-    position: absolute;
-    width:100%;
-    background: rgba(0,0,0,0.7);
-    z-index:-1;
-    height:100%
-}
-img,#extraSignUp{
+#extraSignUp{
   height:630px
-}
-img{
-    width:100%;
-    z-index:-2;
-    position: absolute;
 }
 input {
   border: 1px solid rgba(204, 203, 203, 0.918);

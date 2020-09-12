@@ -13,7 +13,10 @@ from website.settings import BASE_DIR
 from django.core.files.uploadhandler import FileUploadHandler
 # from django.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 413c4fb785acbbae22465951e44c3015ce4918b8
 #COMPONENTS
 from products.models import Product
 from products.serializers import ProductDetailSerializer, ProductSerializer

@@ -2,131 +2,68 @@
 	<div id="flatMenu" @click="toggleSubMenu(),toggleOverFlow()">
 		<div id="flatMenuWrapper" @click='prevent'>
 			<ul>
-			    <li>	
-			    	<a href="#">دسته 1</a>
+			    <li class="parentLi">	
+			    	<div class="link" @click="openMySubMenu($event)">
+			    		
+			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(180deg)"></path></svg>
+			    		<p>خط تولید پنیر پیتزا</p>
+			    	</div>
+			    	
+
+			    	<ul class="subMenu">
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    	</ul>
 			    </li>
-			    <li>
-			    	<a href="#">کسیه پر کن</a>
+			    <li class="parentLi">
+			    	<div class="link" @click="openMySubMenu($event)">
+			    		
+			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(270deg)"></path></svg>
+			    		<p >دسته 1</p>
+			    	</div>
+			    	<ul class="subMenu">
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    	</ul>
 				</li>
-			    <li>
-			    	<a href="#">دستگاه برش چسب</a>
+			    <li class="parentLi">
+			    	<div class="link" @click="openMySubMenu($event)">
+			    		
+			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(270deg)"></path></svg>
+			    		<p >دسته 1</p>
+			    	</div>
+			    	<ul class="subMenu">
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    	</ul>
 				</li>
-			    <li>
-			    	<a href="#">کابل کئوکسال</a>
-				</li>
-				<li>
-			    	<a href="#">شرینک پد</a>
-				</li>
-				<li>
-			    	<a href="#">جت پرینتر</a>
-				</li>
-				<li>
-			    	<a href="#">باند رول</a>
-				</li>
-				<li>
-			    	<a href="#">تسمه کش</a>
-				</li>
-				<li>
-			    	<a href="#">دستگاه توزین</a>
-				</li>
-				<li>
-			    	<a href="#">پالت استرچ </a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته کشاورزی</a>
-				</li>
-				<li>
-			    	<a href="#">کابل کئوکسال</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته کشاورزی</a>
-				</li>
-				<li>
-			    	<a href="#">کابل کئوکسال</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته کشاورزی</a>
-				</li>
-				<li>
-			    	<a href="#">کابل کئوکسال</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته کشاورزی</a>
-				</li>
-				<li>
-			    	<a href="#">کابل کئوکسال</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
-				</li>
-				<li>
-			    	<a href="#">دسته 5</a>
+			    <li class="parentLi">
+			    	<div class="link" @click="openMySubMenu($event)">
+			    		
+			    		<svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(270deg)"></path></svg>
+			    		<p >دسته 1</p>
+			    	</div>
+			    	<ul class="subMenu">
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    		<li>زیر دسته یک</li>
+			    	</ul>
 				</li>
 				
 			</ul>
@@ -135,146 +72,64 @@
 </template>
 
 <style scoped>
-	
 	#flatMenu{
-		background: white;
 		position: absolute;
-		z-index:668;
-		top:0;
-		background: rgba(0,0,0,0.5);
 		width:100%;
-		height:100%;
-		display:flex;
-		justify-content: center;
-
+		top:0;
+		bottom:0;
+		background:rgba(0,0,0,0.5);
+		z-index:669
 	}
 	#flatMenuWrapper{
-		padding: 10px;
-		background: rgb(20,40,80);
-		padding-right: 0;
-		position: absolute;
-		line-height: 2rem;
-		width:90%;
-		height: 400px;
-		display:flex;
-		flex-wrap: nowrap;
+		position:absolute;
 		width:max-content;
-		right:0;
-		top:0;
-		bottom:0;
-		overflow: scroll;
-		
-		
+		background:#f6f6f4;
+		/* height:100vh; */
+		height: 100%;
+		z-index:670;
+		right:-100%;
+		width:max-content;
+		transition: all 1s;
+		overflow: auto;
+
 	}
 	ul{
-		direction: rtl;
-		display:flex;
-		width:100%;
-		flex-direction: column;
-		max-height: 100%;
-		justify-content: flex-end;
-		flex-wrap: wrap;
-		position: relative;
-		display:flex;
-		flex-direction:column;
-		align-items: flex-end;
-		justify-content: flex-start;
-		max-height: max-content;
-		flex-wrap: nowrap;
-		height:100%
+		padding:10px;
+		line-height: 2rem;
+		overflow: auto;
+		height:100vh
 	}
 	li{
-		cursor: pointer;
-		position: relative;
-		margin-top:5px;
+		text-align: right;
+		position:relative;
+		margin-top: 5px;
+		margin-bottom: 5px
+	}
+	.subMenu{
+		background-color: #dfdfdf;
+		width:100%;
+		padding:0;
+		height:0;
+		transition: all 0.4s;
+		overflow: hidden;
+	}
+	.subMenu li{
 		padding:5px;
-		transition: all 0.5s linear;
-		text-align:right;
-		width:100%
 	}
-	li a{
-		position: relative;
-		color:white;
+	svg{
+		width:15px;
+		height: 15px;
+		transform: rotate(-90deg);
+		margin-right: 20px
 	}
-	li a:before,
-	li a:after {
-		background-color: red;
-	} 
-	
-	li a:hover:before,li:hover a:before{
-		transform:scaleX(1)
+	.link{
+		display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+    	cursor:pointer;
 	}
-	li a:before{
-		content:'';
-		position:absolute;
-		top:0;
-		left:0;
-		width:100%;
-		height:2px;
-		transform: scaleX(0);
-		transition:all 0.5s ;
-		transform-origin: left;
-	}
-	li a:after{
-		content:'';
-		position:absolute;
-		bottom:0;
-		left:0;
-		width:100%;
-		height:2px;
-		transform: scaleX(0);
-		transition:all 0.5s ;
-		transform-origin: right;
-	}
-	li:hover a:before,li:hover a:after{
-		transform:scaleX(1)
-	}
-	.subMenu:hover{
-		display: block
-	}
-	@media (max-width: 924px){
-		#flatMenuWrapper{
-			width:max-content;
-			right:0;
-			top:0;
-			bottom:0;
-			overflow: scroll;
-			height:100vh
-		}
-		#flatMenuWrapper ul{
-			height:100%;
 
-		}
-		#flatMenu{
-			display: flex;
-			align-items: flex-start;
-			max-height: max-content;
-		}
-		ul{
-			display:flex;
-			flex-direction:column;
-			align-items: flex-end;
-			justify-content: flex-start;
-			max-height: 100%;
-			flex-wrap: nowrap;
-			height:100%
-		}
-		li{
-			height: max-content;
-			line-height: 3em;
-			width:100%;
-			text-align:right
-		}
-		li:nth-child(odd)
-		{
-			border-left: 0
-		}
-		li:nth-child(even)
-		{
-			border-left: 0
-		}
 
-	}
 </style>
 
 <script>
@@ -288,20 +143,53 @@
 				'toggleSubMenu'
 			]),
 			prevent(e){
-				console.log(e)
 				e.stopPropagation();
 				e.preventDefault();
 				
 				
 			},
 			toggleOverFlow(){
+	
 				this.toggleBodyOverFlow()
+			},
+			openMySubMenu(e){
+				let next
+				const parentEl=e.target.closest(".parentLi")
+				const scg=parentEl.querySelector("svg")
+				next=parentEl.childNodes[2]
+
+				next.style.transition = "all 0.5s ease-in-out";
+
+				
+				
+				const allSubs=document.querySelectorAll('.subMenu')
+				const height = getComputedStyle(next).height
+				if(height!="0px"){
+					next.style.height = '0px'
+					return
+				}
+				allSubs.forEach( sub=>{
+					sub.style.height='0px'
+				});
+				if(height=="0px"){
+					next.style.height  =`${(next.querySelectorAll('li').length+1)*42}px`
+				}else{
+					next.style.height = '0px'
+				}
+				
+				
+			},
+			rotateArrow(el){
+				el.style.transition = 'all 0.5s ease-in-out'
+				el.style.transform="rotate(180deg)"
 			}
 
 		},
 		mounted(){
-			this.adjustFromTop(document.querySelector("#flatMenuWrapper"))
+			const menuWrapper=document.querySelector("#flatMenuWrapper")
+			this.adjustFromTop(menuWrapper,false)
 			this.toggleBodyOverFlow('hidden')
+			menuWrapper.style.right="0"
 			window.addEventListener("resize",()=>{
 				if(window.innerWidth>801)
 				{

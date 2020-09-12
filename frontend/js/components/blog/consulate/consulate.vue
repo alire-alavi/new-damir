@@ -17,18 +17,22 @@
             <label class="comeUpLabel" for="name">نام</label>
           </div>
         </div>
-        <div id="email" class="inputs">
+        <div id="password" class="inputs">
           <div class="formInputsWrapper">
             <input
               autocomplete="off"
-              @blur="focusOut($event),startValidation('phone',$event)"
-              class="signupFormInputs inputWithLabelThatShouldStay"
-              id="userEmail"
+              name="password1"
+              v-model="pass"
+              @blur='focusOut($event),startValidation("phone",$event)'
+              class="inputWithLabelThatShouldStay signupFormInputs"
+              id="consulate"
               type="text"
             />
-            <label class="comeUpLabel" for="userEmail">شماره تلفن همراه</label>
+            <label class="comeUpLabel" for="consulate">شماره تلفن</label>
           </div>
-          <p class="inputError">فرمت شماره اشتباه است</p>
+          <p class="inputError">
+            فرمت شماره تلفن اشتباه است
+          </p>
         </div>
         <div class="sendReq">
           <button
@@ -63,19 +67,13 @@ export default {
       const parentNode = e.target.parentElement;
 
       const error = parentNode.nextElementSibling;
-      if (el.id == "userPassword" && el.value.length < 8) {
-        error.style.visibility = "visible";
-        el.classList.remove("correct");
-        el.classList.add("wrong");
-        return;
-      }
       const res = this.validateUserInput(type, e);
 
       if (res) {
-        error.style.visibility = "hidden";
+        error.style.visibility="hidden"
         return;
       }
-      error.style.visibility = "visible";
+      error.style.visibility="visible"
     },
     sendConsulateRequest() {
       const btn = document.querySelector(".sendConsulateRequest");
@@ -97,7 +95,7 @@ export default {
 .consulate {
   position: fixed;
   right: 50px;
-  bottom: -237.156px;
+  bottom: -244.156px;
   transition: all 0.5s linear;
   z-index: 667;
 }
@@ -109,9 +107,10 @@ export default {
   justify-content: center;
 }
 .consulateWrapper {
-  background: rgb(173, 166, 176);
+  background: #f6f6f4;
   margin: auto;
   padding: 10px;
+  border: 1px solid #9f9f9f;
 }
 .sendReq {
   display: flex;
@@ -119,8 +118,9 @@ export default {
   margin-top: 5px;
 }
 .title {
-  background: rgb(229, 46, 113);
+  background: rgb(0 116 217);
   padding: 10px;
+  padding-bottom: 40px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   cursor: pointer;
@@ -140,5 +140,9 @@ export default {
   height: 50px;
   margin: 0;
   display: none;
+}
+.inputError{
+  display:block;
+  visibility: hidden;
 }
 </style>

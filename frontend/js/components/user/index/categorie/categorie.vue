@@ -7,22 +7,17 @@
             </div>
             <div id="allCats">
                 <ul>
-                    <li class="parentLi">دست1 <arrow></arrow>
+                    <li v-for="(c,i) in mainCats" :key="i" class="parentLi"><arrow></arrow>  {{c.title}} 
                         <div class="subMenu">
                             <div class="subTitleWrapper">
-                                <div class="SubTitle"><p>دسته 1</p></div>
+                                <div class="SubTitle"><p>{{c.title}}</p></div>
                                 <ul>
-                                    <li><a href="#">زیردسته 1</a></li>
-                                    <li><a href="#">زیردسته 2</a></li>
-                                    <li><a href="#">زیردسته 3</a></li>
-                                    <li><a href="#">زیردسته4</a></li>
-                                    <li><a href="#">زیردسته 5</a></li>
-                                    <li><a href="#">مشاهده همه</a></li>
+                                    <li v-for="sub in c.subs"><a href="#">{{sub.title}}</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li class="parentLi">دست1 <arrow></arrow>
+                    <!-- <li class="parentLi"> <arrow></arrow>دست1 
                     <div class="subMenu">
                             <div class="subTitleWrapper">
                                 <div class="SubTitle"><p>دسته 1</p></div>
@@ -37,7 +32,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="parentLi">دست1 <arrow></arrow>
+                    <li class="parentLi"><arrow></arrow> دست1
                     <div class="subMenu">
                             <div class="subTitleWrapper">
                                 <div class="SubTitle"><p>دسته 1</p></div>
@@ -52,7 +47,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="parentLi">دست1 <arrow></arrow>
+                    <li class="parentLi"><arrow></arrow> دست1 
                     <div class="subMenu">
                             <div class="subTitleWrapper">
                                 <div class="SubTitle"><p>دسته 1</p></div>
@@ -67,7 +62,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="parentLi">دست1 <arrow></arrow>
+                    <li class="parentLi"><arrow></arrow> دست1 
                     <div class="subMenu">
                             <div class="subTitleWrapper">
                                 <div class="SubTitle"><p>دسته 1</p></div>
@@ -81,7 +76,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
                     
                 </ul>
             </div>
@@ -96,6 +91,10 @@
         components:{
             ham,
             arrow
+        },
+        props:['mainCats'],
+        created(){
+            console.log("cats",this.mainCats)
         }
     }
 </script>
@@ -120,9 +119,8 @@
     }
     .subMenu{
         position: absolute;
-        /* left:0; */
         display:none;
-        /* left:218px; */
+        right:100%;
         z-index:667;
         background-color: white;
         height:max-content;
@@ -166,8 +164,16 @@
         display:flex;
         justify-content: space-between;
     }
+    .subMenu li{
+        display:flex;
+        justify-content:flex-end
+    }
     .parentLi{
         position: relative;
+        font-size:20px
+    }
+    .parentLi:hover .subMenu{
+        display:block
     }
     #hamCats{
         display:flex;

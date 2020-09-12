@@ -191,13 +191,14 @@ def register_view(request):
         email_q = User.objects.filter(email=email)
         if user_q.exists():
             message = {"messages" : "این نام کاربری قبلا ثبت شده است"}
-            return redirect('accounts:signup')
+            return redirect('../../accounts/signup/')
         elif email_q.exists():
             message = {"messages" : "این ایمیل قبلا ثبت شده است"}
-            return redirect('accounts:signup')
+            return redirect('../../accounts/signup/', message=)
         elif password1 != password2:
             message = {"messages" : "پسورد شما همخوانی ندارد"}
-            return redirect('../../accounts/signup/')
+            render
+            return redirect(reverse('../../accounts/signup/', json_context=))
         else:
             user = User.objects.create(
                 username=username,

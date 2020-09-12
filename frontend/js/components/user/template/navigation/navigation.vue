@@ -15,7 +15,7 @@
 				</div>
 				<div ref='allCategories' id="allCategories">
 					<ul>
-						<li @click='toggleSubMenu();checkTop($event),shouldDisplay()'>
+						<li @click='toggleSubMenu();checkTop($event)'>
 							دسته بندی محصولات
 						</li>
 					</ul>
@@ -27,7 +27,7 @@
 					<ul>
 						<li><a href="/">خانه</a></li>
 						<li><a href="#">درباره ما</a></li>
-						<li><a href="/blog">وبلاگ</a></li>
+						<li><a href="/blog/posts/">وبلاگ</a></li>
 						
 						
 					</ul>
@@ -37,9 +37,9 @@
 
 			</div>
 		</transition>
-		<transition name='toggleSubMenu' mode='out-in'>
+		<!-- <transition name='toggleSubMenu' mode='out-in'> -->
 			<flat-menu v-if='checkSubMenuIsOpen'></flat-menu>
-		</transition>
+		<!-- </transition> -->
 	</div>
 
 
@@ -47,6 +47,7 @@
 
 <script>
 	import ham from "../hamIcon/ham.vue"
+	import slicer from "../slicer/slicer.vue"
 	import flatMenu from "../flatMenu/flatMenu.vue"
 	import {mapActions} from "vuex"
 
@@ -96,9 +97,6 @@
 						this.toggleSubMenu()
 					}
 				}
-			},
-			shouldDisplay(){
-				
 			}
 			
 			
@@ -131,19 +129,21 @@
 <style scoped>
 	.hamIcon{
 		display:none;
-		background: rgb(16,14,23);
+		background: #f6f6f4;
 		widtH:100%;
-		justify-content:center
+		justify-content:center;
+		border-top:1px solid #d9d8d8
 	}
 	#navigation{
 		display: flex;
 		justify-content: center;
 		width:100%;
-		background: rgb(16,14,23);
+		background: #f6f6f4;
+		border-bottom:1px solid #d9d8d8
 		
 	}
 	a{
-		color:white;
+		color:black;
 		padding:5px
 	}
 	.hamSvg{
@@ -156,7 +156,7 @@
 		display: flex;
 		justify-content: space-between;
 		z-index:667;
-		background: rgb(16,14,23);
+		background: #f6f6f4;
 	}
 	ul{
 		display: flex;
@@ -166,7 +166,7 @@
 		border-left:1px solid white
 	}
 	#allCategories{
-		color:white;
+		color:black;
 		display: none;
 	}
 	#allCategories ul li{
@@ -196,7 +196,7 @@
 			justify-content: center;
 			position: absolute;
 			top:305px;
-			z-index:667
+			z-index:668
 		}
 		ul{
 			flex-direction: column;
@@ -217,7 +217,7 @@
 			display:block
 		}
 		svg{
-			fill:rgb(33,162,184)
+			fill:rgb(11,111,210)
 		}
 	}
 

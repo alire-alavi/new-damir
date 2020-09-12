@@ -28,8 +28,8 @@
 
 		</div>
 		<div class="controlls">
-			<div class="pre" @click="pre()"><</div>
-			<div class="next" @click='next()'>></div>
+			<div class="pre" @click="pre()"><svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(180)"></path></svg></div>
+			<div class="next" @click='next()'><svg viewBox="0 0 100 100"><path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" class="arrow" transform="translate(85,100) rotate(180)"></path></svg></div>
 		</div>
 	</div>
 </template>
@@ -108,17 +108,24 @@
 	.controlls .pre,.controlls .next{
 		position: absolute;
 		top:50%;
-		height:40px;
-		width:40px;
+		height:50px;
+		width:50px;
 		cursor:pointer;
 		z-index:2;
-		color:#000000;
-		background-color: rgba(255, 153, 0, 0.4);
-		text-align:center;
-		line-height: 40px;
+		background-color: hsla(0, 0%, 100%, 0.75);
+		border-radius: 50%;
 		transition:all 0.5s ease;
-		font-size: 20pt;
-		font-weight: 700;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.pre{
+		transform:rotateY(180deg)
+	}
+	svg{
+		width:40px;
+		height:40px
 	}
 	.next{
 		right:0
@@ -143,8 +150,9 @@
 	}
 	#slider{
 		position:relative;
-		width:688px;
-		max-height:max-content
+		width:800px;
+		max-height:max-content;
+		background-color: #ffffff
 	}
 	.container{
 		position:absolute;
@@ -246,7 +254,7 @@
 		width:25px;
 		height:25px;
 		color:#ffffff;
-		background-color: #ff5722;
+		background-color: rgb(11,111,211);
 		border-radius: 50%;
 		text-align: center;
 		margin:0 10px;

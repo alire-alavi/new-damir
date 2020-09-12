@@ -13,7 +13,7 @@ SECRET_KEY = 'r&l5m&!!ne%yjv=^r5t4vpb!o0(z-#(bei2^o8)o@ung8swi^z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.106',"127.0.0.1"]
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -46,6 +46,11 @@ INSTALLED_APPS = [
 
     'tinymce',
     'hitcount',
+<<<<<<< HEAD
+=======
+    'ckeditor',
+    'ckeditor_uploader',
+>>>>>>> 413c4fb785acbbae22465951e44c3015ce4918b8
 
 
 ]
@@ -65,7 +70,7 @@ ROOT_URLCONF = 'website.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'static/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,6 +144,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/images/'
@@ -198,7 +205,7 @@ FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
 
 # # Vue assets directory (assetsDir)
 STATICFILES_DIRS = [
-    os.path.join(FRONTEND_DIR, ),
+    os.path.join(FRONTEND_DIR,),
 ]
 
 

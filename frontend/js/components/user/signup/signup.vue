@@ -93,7 +93,6 @@
         background: white;
         margin-top:20px;
         border-radius: 5px;
-        border:1px solid rgb(180,180,180)
     }
     label,p{
         color:rgb(41,41,41)
@@ -200,10 +199,10 @@
                 
                 
                 if(res){
-                    error.style.visibility="hidden"
+                    error.style.display="none"
                     return
                 }
-                error.style.visibility="visible"
+                error.style.display="block"
             }
         }
     }

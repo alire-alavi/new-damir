@@ -62,3 +62,4 @@ import './css/prettyCheckbox.css'
 
 
 
+export const eventBus=new vue()

@@ -250,7 +250,7 @@ class ProductDetailView(View):
                 'product': json_product,
                 'object' : queryset,
             }
-            return render(request, 'product.html', context)
+            return render(request, 'views/product.html', context)
         except ObjectDoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -286,3 +286,27 @@ def user_panel_view(request):
         'products': json_products,
     }
     return render(request, 'views/userPanel.html', context)
+
+
+
+
+def product_paginated(request, page):
+    page_number = page
+    products = Product.objects.all()
+    products_quantity = Product.objects.all().count()
+    products_pages = products_quantity/12
+    first_obj = 12*(page_number-1)
+    last_obj = 12*(page)
+
+    page_products = products[first_obj:last_obj]
+    serialized_products = ProductDetailSerializer(page_products, many=True).data
+    json_products_data = json.dumps(serialized_products)
+    previous_page = page - 1 
+    next_page = page + 1
+    json_page_data = f'[{{ "previous_page" : {previous_page}, "next_page" : {next_page} }}]'
+
+    context = {
+        'products' : json_products_data,
+        'page-data' : json_page_data,
+    }
+    return render(request, 'views/products.html', context)

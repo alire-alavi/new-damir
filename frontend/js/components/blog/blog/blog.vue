@@ -51,7 +51,7 @@
 
 
 
-      <consulate></consulate>
+      <!-- <consulate></consulate> -->
 
       <div class="blogPostWrapper">
         <single-post
@@ -164,34 +164,18 @@ export default {
     top:0;
     background: rgba(0,0,0,0.8);
     display:none;
-    animation:comIn 0.4s linear
 }
 .allBlogCatsWrapper{
     position: absolute;
     right:0;
     width:max-content;
-    background: cornflowerblue;
+    background: #ffffff;
     overflow: auto;
 }
 .allBlogCatsWrapper ul li{
     padding:12px;
     text-align:right
 }
-@keyframes comIn{
-    from{
-        left:100%
-    }
-    to{
-        left:0
-    }
-}
-
-
-
-
-
-
-
 
 
 
@@ -203,11 +187,10 @@ export default {
 }
 .blogPostWrapper {
   display: flex;
-  width: 95%;
+  max-width:1200px;
   flex-wrap: wrap;
   margin: auto;
   justify-content: center;
-  max-width: 1500px;
 }
 
 .title p {
@@ -216,5 +199,17 @@ export default {
 .openCatsBtn{
     display:flex;
     justify-content: center;
+}
+.allBlogCatsWrapper{
+  transition:all 0.5;
+  animation:comeRight 0.5s
+}
+@keyframes comeRight{
+  from{
+    right:-100%
+  }
+  to{
+    right:0
+  }
 }
 </style>
