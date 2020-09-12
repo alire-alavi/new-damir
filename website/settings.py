@@ -46,11 +46,9 @@ INSTALLED_APPS = [
 
     'tinymce',
     'hitcount',
-<<<<<<< HEAD
-=======
     'ckeditor',
     'ckeditor_uploader',
->>>>>>> 413c4fb785acbbae22465951e44c3015ce4918b8
+
 
 
 ]
