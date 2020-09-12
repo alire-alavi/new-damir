@@ -125,6 +125,7 @@ select:focus {
 	font-size: 17pt;
 	margin-top: 5px;
 	display: none;
+	width:215px
 }
 
 .maxIs {

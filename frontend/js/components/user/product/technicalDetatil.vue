@@ -41,7 +41,7 @@
     }
     td{
         text-align:right;
-        width:85%
+        /* width:85% */
     }
     td,th{
         padding:10px
@@ -54,6 +54,6 @@
     }
     th{
         text-align:right;
-        width:15%
+        width:max-content
     }
 </style>

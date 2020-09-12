@@ -22,18 +22,22 @@
 				<p>تقشه سایت</p>
 				
 			</div>
-			<p class="copy">تمام حقوق اسن سایت متعلق بخ دمیرکو است &#169;</p>
+			
 			
 
 
 
 		</div>
+		<p class="copy">تمام حقوق این سایت متعلق به دمیرکو است &#169;</p>
 	</div>
 
 </template>
 
 
 <style scoped>
+.copy{
+	text-align:center
+}
 #thirdRow{
 	display: flex;
 	justify-content: center;

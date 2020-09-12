@@ -59,6 +59,7 @@
 
 
                 </div>
+                <button class="submit">مشاهده کامنت بیشتر</button>
             </div>
         </div>
     </div>
@@ -66,6 +67,11 @@
 
 
 <style scoped>
+#allComments{
+    display: flex;
+    flex-direction: column;
+    align-items:center
+}
     .commentSlicer div {
         width: 75%;
         height:2px;

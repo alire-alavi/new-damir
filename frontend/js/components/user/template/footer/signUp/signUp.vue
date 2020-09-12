@@ -3,23 +3,23 @@
 		<p>ثبت نام</p>
 		<div class="footeSignUpWrapper">
 			<form>
-				<div id="footerUserName" class="inputs">
+				<div  class="inputs">
 	              <div class="formInputsWrapper">
 	                <input autocomplete="off" @blur="focusOut($event),startValidation('name',$event)" class="signupFormInputs inputWithLabelThatShouldStay" id="footerUserName" type="text" name="userName"/>
 	                <label class="comeUpLabel" for="footerUserName">نام</label>
 	              </div>
 	              <p class="inputError">فرمت نام اشتباه است</p>
 	            </div>
-	            <div id="footerUserEmail" class="inputs">
+	            <div  class="inputs">
 	              <div class="formInputsWrapper">
 	                <input autocomplete="off" @blur="focusOut($event),startValidation('email',$event)" class="signupFormInputs inputWithLabelThatShouldStay" id="footerUserEmail" type="text" name="userEmail"/>
 	                <label class="comeUpLabel" for="footerUserEmail">ایمل </label>
 	              </div>
 	              <p class="inputError">فرمت ایمیل اشتباه است</p>
 	            </div>
-	            <div id="footerUserPassword" class="inputs">
+	            <div  class="inputs">
 	              <div class="formInputsWrapper">
-	                <input autocomplete="off" @blur="focusOut($event),startValidation('email',$event)" class="signupFormInputs inputWithLabelThatShouldStay" id="footerUserPassword" type="text" name="userPassword"/>
+	                <input autocomplete="off" @blur="focusOut($event),startValidation('pass',$event)" class="signupFormInputs inputWithLabelThatShouldStay" id="footerUserPassword" type="text" name="userPassword"/>
 	                <label class="comeUpLabel" for="footerUserPassword">رمز</label>
 	              </div>
 	              <p class="inputError">
@@ -27,9 +27,9 @@
                 	<span>#</span> باشد
               	</p>
 	            </div>
-	            <div id="footerUserPassConf" class="inputs">
+	            <div  class="inputs">
 	              <div class="formInputsWrapper">
-	                <input autocomplete="off" @blur="focusOut($event),startValidation('email',$event)" class="signupFormInputs inputWithLabelThatShouldStay" id="footerUserPassConf" type="text" name="userPasswordConf"/>
+	                <input autocomplete="off" @blur="focusOut($event)" class="signupFormInputs inputWithLabelThatShouldStay" id="footerUserPassConf" type="text" name="userPasswordConf"/>
 	                <label class="comeUpLabel" for="footerUserPassConf">تایید رمز</label>
 	              </div>
 	              <p class="inputError">فرمت نام اشتباه است</p>

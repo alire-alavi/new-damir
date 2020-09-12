@@ -28,6 +28,7 @@
 import {keepStay} from "../../user/mixIns/keepStay.js"
 import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
 import doneMessage from "../../user/template/doneMessage/doneMessage.vue"
+import loading from "../template/"
 export default {
     mixins:[keepStay,adjustElFromTop],
     components:{

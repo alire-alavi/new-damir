@@ -1,19 +1,23 @@
 <template>
-    <div v-show='shoudIShow' id="consulate" @click='toggleConsulate(),changeBodyOverFlow()'>
-        <div @click='prevent($event)' id="consulateWrapper">
-            <div class="input">
-                <label for="name">نام:</label>
-                <input v-model='name' @blur="startValidateForName($event)" autocomplete="off" type="text" id='name' name="" placeholder="نام">
-                <p class='inputError'>نام نمیتواند خالی باشد</p>
+    <div class="consulate" @click='closeConsulate($event)'>
+        <div @click='prevent($event)' class="consulateWrapper">
+             <div id="email" class="inputs">
+                <div class='formInputsWrapper'>
+                        <input autocomplete="off" name="email" @blur='focusOut($event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userEmail' type="text">
+                        <label class='comeUpLabel' for="userEmail">نام</label>                                                                  
+                </div> 
             </div>
-            <div class="input">
-                <label for="phone" >شماره تلفن همراه:</label>
-                <input autocomplete="off" @blur='startValidation("phone",$event)' type="text" id='phone' name="" placeholder="شماره تلفن همراه">
-                <p class='inputError'>فرمت شماره تلفن اشتباه است</p>
+             <div id="email" class="inputs">
+                <div class='formInputsWrapper'>
+                        <input autocomplete="off" name="email" @blur='focusOut($event),startValidation("phone",$event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userEmail' type="text">
+                        <label class='comeUpLabel' for="userEmail">شماره تلفن</label>                                                                  
+                </div>
+                <p class="inputError">فرمت شماره اشتباه است</p> 
             </div>
             <div>
                 <button @click='consulateRequest()' class="submit">ثبت</button>
             </div>
+            <input type="hidden" :value="productName">
 
         </div>
     </div>
@@ -23,8 +27,10 @@
 <script>
     import {mapActions} from 'vuex'
     import {validationRules} from '../mixIns/validationMixIn.js'
+    import {keepStay} from "../mixIns/keepStay.js"
     export default {
-        mixins:[validationRules],
+        mixins:[validationRules,keepStay],
+        props:['productName'],
         methods:{
             ...mapActions([
                 'toggleConsulate'
@@ -33,8 +39,9 @@
                 e.preventDefault();
                 e.stopPropagation()
             },
-            changeBodyOverFlow(){
-                document.body.style.overflow=''
+            closeConsulate(e){
+                    e.target.style.display="none"
+                    // cons.style.display='none'
             },
             consulateRequest(){
                 const doneMessage=document.querySelector('#doneMessage')
@@ -45,22 +52,21 @@
                     doneMessage.style.display='none'
                 },5000)
             },
-            startValidation(ruleType,e){
-                const res=this.validateUserInput(ruleType,e)
-                if(!res){
-                    e.target.nextElementSibling.style.display='block'
-                    return
-                }
-                e.target.nextElementSibling.style.display='none'
+            startValidation(type,e){
+                const el=e.target
+                const parentNode=e.target.parentElement
+            
+                const error=parentNode.nextElementSibling
+                const res=this.validateUserInput(type,e)
+                console.log(error)
                 
-            },
-            startValidateForName(e){
-                const error=e.target.nextElementSibling
-                if(this.name.length==''){
-                    error.style.display='block'
+                
+                if(res){
+                    error.style.display="none"
                     return
                 }
-                error.style.display='none'
+                error.style.display="block"
+                
             }
         },
         data(){
@@ -78,7 +84,7 @@
 </script>
 
 <style scoped>
-    #consulate{
+    .consulate{
         position: absolute;
         width:100%;
         height:100%;
@@ -87,9 +93,8 @@
         right:0;
         left:0;
         bottom:0;
-        display: flex;
         background: rgb(0,0,0,0.6);
-        z-index:666;
+        z-index:667;
         transition: all 0.3s;
         animation: fadeIn 0.3s linear;
     }
@@ -101,7 +106,7 @@
             opacity: 1;
         }
     }
-    #consulateWrapper{
+    .consulateWrapper{
         display: flex;
         flex-direction: column;
         align-items: center;

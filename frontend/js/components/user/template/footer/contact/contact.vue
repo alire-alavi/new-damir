@@ -112,10 +112,10 @@
                 
                 
                 if(res){
-                    error.style.visibility="hidden"
+                    error.style.display="none"
                     return
                 }
-                error.style.visibility="visible"
+                error.style.display="block"
 
             }
 

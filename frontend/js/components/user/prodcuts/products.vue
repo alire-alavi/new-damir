@@ -1,241 +1,183 @@
 <template>
-    <div id="products" class='shouldCollapse'>
-        <div class="filterText">
-           <button class='submit' @click='toggleFiltering()'><img src="/images/filter.png" alt="" class="filterIcon"> فیلتر محصولات </button>
-        </div>
-        <div @click='toggleConsulate(),adjustConsulateTop()' class="speek">
-            <p>مشاوره رایگان</p>
-        </div>
-        <div id="productsWrapper" class='maxis'>
-            <div class="product">
-                <div class="productImg">
-                    <img src="/images/htest2.jpg" alt="">
+    <div id="products" class='shouldCollapse maxIs'>
+        <div id="productsWrapper">
+            <div class="singleProduct">
+                <div class="img">
+                    <img src="/images/1.jpg" alt="">
                 </div>
-                <div class="descs">
-                    <div class="productTitle">
-                        <p><a href="#">امپلی فایر مدل PA system S30-/60M</a></p>
-                    </div>
-                    <div class="productDescs">
-                        <p>{{getDescs(descs)}}</p>
-                    </div>
+                <div class="title">
+                    <a href="#"><p>خط تولید فلان</p></a>
                 </div>
-                <div class="productRegion">
-                    <div class="compony">
-                        <p>ساخت گلد  ایرن</p>
-                    </div>
-                    <div class="region">
-                        <p>چین</p>
-                        <img src="/images/china.png" alt="china"> 
-                        
-                    </div>
-                    <div class="seeProduct">
-                        <a class='submit' href="#">مشاهده محصول</a>
-                    </div>
+                <div class="price">
+                    <p>3200000 تومان</p>
+                    <p>حداقل خرید : یک تن</p>
                 </div>
+                <div class="contactUs">
+                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
+                </div>
+                <consulate productName="خط تولید"></consulate>
             </div>
 
-
-            <hr>
-
-
-            <div class="product">
-                <div class="productImg">
-                    <img src="/images/ampl.jpg" alt="">
+            <div class="singleProduct">
+                <div class="img">
+                    <img src="/images/ours1.png" alt="">
                 </div>
-                <div class="descs">
-                    <div class="productTitle">
-                        <p><a href="#">امپلی فایر مدل PA system S30-/60M</a></p>
-                    </div>
-                    <div class="productDescs">
-                        <p>{{getDescs(descs)}}</p>
-                    </div>
+                <div class="title">
+                    <a href="#"><p>خط تولید فلان</p></a>
                 </div>
-                <div class="productRegion">
-                    <div class="compony">
-                        <p>ساخت گلد ایران ایران ایران ایرن</p>
-                    </div>
-                    <div class="region">
-                        <p>چین</p>
-                        <img src="/images/china.png" alt="china">
-                        
-                    </div>
-                    <div class="seeProduct">
-                        <a class='submit' href="#">مشاهده محصول</a>
-                    </div>
+                <div class="price">
+                    <p>3200000 تومان</p>
+                    <p>حداقل خرید : یک تن</p>
                 </div>
+                <div class="contactUs">
+                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
+                </div>
+                <consulate productName="خط تولید"></consulate>
             </div>
-
-
-
-
-
+            <div class="singleProduct">
+                <div class="img">
+                    <img src="/images/1.jpg" alt="">
+                </div>
+                <div class="title">
+                    <a href="#"><p>خط تولید فلان</p></a>
+                </div>
+                <div class="price">
+                    <p>3200000 تومان</p>
+                    <p>حداقل خرید : یک تن</p>
+                </div>
+                <div class="contactUs">
+                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
+                </div>
+                <consulate productName="خط تولید"></consulate>
+            </div>
+            <div class="singleProduct">
+                <div class="img">
+                    <img src="/images/1.jpg" alt="">
+                </div>
+                <div class="title">
+                    <a href="#"><p>خط تولید فلان</p></a>
+                </div>
+                <div class="price">
+                    <p>3200000 تومان</p>
+                    <p>حداقل خرید : یک تن</p>
+                </div>
+                <div class="contactUs">
+                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
+                </div>
+                <consulate productName="خط تولید"></consulate>
+            </div>
+            <div class="singleProduct">
+                <div class="img">
+                    <img src="/images/1.jpg" alt="">
+                </div>
+                <div class="title">
+                    <a href="#"><p>خط تولید فلان</p></a>
+                </div>
+                <div class="price">
+                    <p>3200000 تومان</p>
+                    <p>حداقل خرید : یک تن</p>
+                </div>
+                <div class="contactUs">
+                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
+                </div>
+                <consulate productName="خط تولید"></consulate>
+            </div>
+            <div class="singleProduct">
+                <div class="img">
+                    <img src="/images/1.jpg" alt="">
+                </div>
+                <div class="title">
+                    <a href="#"><p>خط تولید فلان</p></a>
+                </div>
+                <div class="price">
+                    <p>3200000 تومان</p>
+                    <p>حداقل خرید : یک تن</p>
+                </div>
+                <div class="contactUs">
+                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
+                </div>
+                <consulate productName="خط تولید"></consulate>
+            </div>
+            <div class="singleProduct">
+                <div class="img">
+                    <img src="/images/1.jpg" alt="">
+                </div>
+                <div class="title">
+                    <a href="#"><p>خط تولید فلان</p></a>
+                </div>
+                <div class="price">
+                    <p>3200000 تومان</p>
+                    <p>حداقل خرید : یک تن</p>
+                </div>
+                <div class="contactUs">
+                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
+                </div>
+                <consulate productName="خط تولید"></consulate>
+            </div>
+            <div class="singleProduct">
+                <div class="img">
+                    <img src="/images/1.jpg" alt="">
+                </div>
+                <div class="title">
+                    <a href="#"><p>خط تولید فلان</p></a>
+                </div>
+                <div class="price">
+                    <p>3200000 تومان</p>
+                    <p>حداقل خرید : یک تن</p>
+                </div>
+                <div class="contactUs">
+                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
+                </div>
+                <consulate productName="خط تولید"></consulate>
+            </div>
+            <div class="singleProduct">
+                <div class="img">
+                    <img src="/images/1.jpg" alt="">
+                </div>
+                <div class="title">
+                    <a href="#"><p>خط تولید فلان</p></a>
+                </div>
+                <div class="price">
+                    <p>3200000 تومان</p>
+                    <p>حداقل خرید : یک تن</p>
+                </div>
+                <div class="contactUs">
+                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
+                </div>
+                <consulate productName="خط تولید"></consulate>
+            </div>
+            
         </div>
-        <transition name="fade" mode='out-in'>
-            <consulate></consulate>
-        </transition>
-        <keep-alive>
-            <filtering v-if='shoudShow()'></filtering>
-        </keep-alive>
 
     </div>
 </template>
 
 <style scoped>
-    .speek{
-        background: rgb(229,46,113);
-        position:fixed;
-        right:0;
-        top:80%;
-        z-index:665;
-        cursor:pointer
-    }
-    .speek p{
-        padding:10px;
-        color:white;
-        font-size:10pt;
-        
-    }
-    .filterText{
-        width:100%;
-        display:flex;
-        justify-content: center;
-        margin-top:10px
-    }
-    #products{
-        display:flex;
-        flex-direction: column;
-        align-items: flex-end;
-        background: white;
-        margin-top:20px
-    }
-    #productsWrapper{
-        padding:10px;
-    }
-    .product{
-        display:flex;
-        justify-content: space-between;
-    }
-    .product:not(:first-child)
-    {
-        margin-top:20px
-    }
-    .descs{
-        display:flex;
-        flex-direction:column;
-        align-items: flex-end;
-        width:60%;
-        order:2
-    }
-    .productTitle a{
-        color:rgb(74, 96, 192)
-    }
-
-    .region img{
-        width:40px;
-        height: 30px;
-    }
-    .productImg{
-        order:3;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        width:20%
-    }
-    .productDescs p{
-        font-size:14pt
-    }
-    .compony p{
-        font-size:12pt
-    }
-    .productImg img{
-        width:100%;
-    }
-    .seeProduct{
-        margin-top:20px
-    }
-    .productRegion{
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items: center;
-        order:1;
-        width:20%;
-        border:5px solid rgb(211, 219, 221)
-    }
-    .productRegion div{
-        padding:5px
-    }
-    .region{
-        display:flex
-    }
-    .region p{
-        margin-right:5px
-    }
-    .productImg img:hover{
-        transform: scale(1.4);
-    }
-    @media (max-width:815px)
-    {
-        .product{
-            flex-direction: column;
-        }
-        .descs
-        {
-            width:100%
-        }
-        .productRegion{
-            order:3;
-            height: 150px;
-            width:300px;
-            max-width: max-content;
-            margin:auto;
-            margin-top:20px
-        }
-        .productImg{
-            order:1;
-            width:100%;
-        }
-        .productImg img{
-            width:250px;
-        }
-        .productTitle p{
-            font-size: 15pt;
-            line-height: 120%;
-        }
-        .productDescs p{
-            line-height: 120%;
-        }
-    }
-    .submit img.filterIcon{
-        width:20px;
-        height:20px
-    }
-    .submit{
-        display: flex;
-        align-items: center;
-    }
-    .fade-enter-active{
-        animation: fadeIn 0.3s linear;
-    }
-    .fade-leave-active{
-        animation: fadeOut 0.3s linear;
-    }
-    @keyframes fadeIn {
-        from{
-            opacity: 0;
-        }
-        to{
-            opacity: 1;
-        }
-    }
-    @keyframes fadeOut {
-        from{
-            opacity: 1;
-        }
-        to{
-            opacity: 0;
-        }
-    }
+#products{
+    margin-top:50px
+}
+#productsWrapper{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.singleProduct{
+    width:23%;
+    margin:10px;
+    width:240px
+}
+img{
+    height:240px;
+    width:240px;
+    
+}
+.title{
+    height:100px
+}
+.contactUs{
+    display:flex;
+    justify-content: center;
+}
 
 </style>
 
@@ -243,11 +185,13 @@
     import {mapActions} from 'vuex'
     import consulate from "./consulate.vue"
     import filtering from "./filtering.vue"
+     import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
     export default{
         components:{
             consulate,
             filtering
         },
+        mixins:[adjustElFromTop],
         data(){
             return{
                 descs:'محصول ساخت چین قدرت تولید صدا تا 1200 دسیبل دارای باتری 36 ولت فلان لان فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان  فلان فلان فلان فلان فلان فلان فلان فلان فلان فلان فلان فلان فلان فلان فلان لان فلان فلان الن'
@@ -270,6 +214,15 @@
             },
             shoudShow(){
                 return this.$store.state.isShowFiltering
+            },
+            showConsulate(e){
+                const el=e.target;
+                const parent=el.closest(".singleProduct")
+                const consulate=parent.querySelector(".consulate")
+                console.log(parent)
+                consulate.style.display="flex"
+                this.adjustFromTop(consulate,false)
+                
             }
         }
     }

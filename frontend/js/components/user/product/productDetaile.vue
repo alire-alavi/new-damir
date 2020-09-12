@@ -44,7 +44,7 @@
 
                         <div class="productImgAndOther">
                             <div class="productImg">
-                                <img class='photo' src="/images/6.jpg" alt="">
+                                <img @click="zoomInOnPhoto($event)" class='photo' src="/images/6.jpg" alt="">
                                <!--  <div class="productImage"></div> -->
                                 <div @click='zoomIn()'><img class='zoomSign' src="/images/mag.png" alt=""><p>بزرگنمایی</p></div>
                                 
@@ -54,18 +54,16 @@
 
                                 <div class="glider-contain">
                                     <div class="glider">
-                                        <div><img src="/images/1.jpg" alt=""></div>
-                                        <div><img src="/images/2.jpg" alt=""></div>
-                                        <div><img src="/images/3.jpg" alt=""></div>
-                                        <div><img src="/images/4.jpg" alt=""></div>
-                                        <div><img src="/images/1.jpg" alt=""></div>
-                                        <div><img src="/images/2.jpg" alt=""></div>
-                                        <div><img src="/images/3.jpg" alt=""></div>
-                                        <div><img src="/images/4.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/1.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/2.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/3.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/4.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/1.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/2.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/3.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/4.jpg" alt=""></div>
+                                        <!-- <div><img @click="changeImage($event)" src="/images/ours1.png" alt=""></div> -->
                                     </div>
-
-                                    <button aria-label="Previous" class="glider-prev">«</button>
-                                    <button aria-label="Next" class="glider-next">»</button>
                                 </div>
 
 
@@ -169,12 +167,8 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
         mounted(){
            new Glider(document.querySelector('.glider'), {
                 slidesToShow: 'auto',
-                slidesToScroll: 1,
-                draggable: true,
-                arrows: {
-    prev: '.glider-prev',
-    next: '.glider-next'
-  }
+                slidesToScroll:'auto',
+                draggable: true
             });
         },
         mixins:[keepStay,adjustElFromTop],
@@ -203,6 +197,16 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
                 img.setAttribute("src",url)
                 zoom.style.display='block'
                 console.log(img.style.top)
+            },
+            zoomInOnPhoto(e){
+                const el=e.target;
+                const src=el.getAttribute("src")
+                this.$store.state.url=src
+                const zoom=document.querySelector(".zoomIn")
+                const img=zoom.querySelector("img")
+                img.style.top=window.scrollY+"px"
+                img.setAttribute("src",src)
+                zoom.style.display='block'
             },
             changeButtonColor(e){
                 const targetBtn=e.target
@@ -258,6 +262,15 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
                 const consulet=document.querySelector(".productConsulate")
                 consulet.style.display="none"
 
+            },
+            changeImage(e){
+                const el=e.target
+                console.log("hey")
+                const img=el.querySelector("img")
+                const src=el.getAttribute("src")
+                const photo=document.querySelector(".photo")
+                photo.setAttribute("src",src)
+
             }
         }
     }
@@ -270,6 +283,9 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
     padding:5px;
     pointer-events: none;
     padding: 5px;
+}
+.photo:hover{
+    cursor: pointer;
 }
 .splide img{
     width:100px !important
@@ -284,6 +300,10 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
     display:none;
     z-index:668
 
+}
+.glider img{
+    user-select: inherit; 
+    pointer-events: all !important;
 }
 .inputs{
     margin-top:5px
@@ -433,17 +453,16 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
     }
     .order1{
         order:2;
+        width:65%;
         display: flex;
         justify-content: flex-end;
     }
     .order2{
         order:1;
+        width:35%;
         display: flex;
         justify-content: flex-end;
         word-wrap: break-word;
-    }
-    .singleDetail div{
-        width:50%
     }
     .singleDetail{
         padding:10px;

@@ -84,8 +84,8 @@
 		position:absolute;
 		width:max-content;
 		background:#f6f6f4;
-		height:100vh;
-		/*height: 100%;*/
+		/* height:100vh; */
+		height: 100%;
 		z-index:670;
 		right:-100%;
 		width:max-content;
@@ -95,7 +95,9 @@
 	}
 	ul{
 		padding:10px;
-		line-height: 2rem
+		line-height: 2rem;
+		overflow: auto;
+		height:100vh
 	}
 	li{
 		text-align: right;
