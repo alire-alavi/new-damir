@@ -90,6 +90,6 @@
 	#megaWrapper{
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: space-between;
 	}
 </style>>

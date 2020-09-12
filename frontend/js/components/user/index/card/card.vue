@@ -294,7 +294,7 @@
 	.card{
 		box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.2);
 		background:#ffffff;
-		margin-top:20px;
+		margin-top:50px;
         overflow: auto;
         width:100%;
 		position: relative;

@@ -196,7 +196,7 @@
 			justify-content: center;
 			position: absolute;
 			top:305px;
-			z-index:667
+			z-index:668
 		}
 		ul{
 			flex-direction: column;

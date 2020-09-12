@@ -5,11 +5,12 @@
             <hr>
             <div class="chooseSection">
                 <div class="section">
-                    <p @click='currentComponent="commentSection",changeButtonColor($event)'>نظرات کاربران</p>
+                    <p @click='currentComponent="technicalDetail",changeButtonColor($event)'>مشخصات فنی</p>
                 </div>
                 <div class="section">
                     <p @click='currentComponent="componyDetali",changeButtonColor($event)'>مشخصات شرکت</p>
                 </div>
+
                 <div class="section">
                     <p @click='currentComponent="productDescs",changeButtonColor($event)'>توضیحات محصول</p>
                 </div>
@@ -19,6 +20,7 @@
                 <component :is="currentComponent"></component>
 
             </transition>
+            <comment-section></comment-section>
         </div>
 
 
@@ -32,11 +34,12 @@
     import commentSection from './commentSection.vue'
     import productDescs from './productDescs.vue'
     import componyDetali from "./componyDetail.vue"
+    import technicalDetail from "./technicalDetatil.vue"
     import axios from 'axios'
     export default{
         data(){
             return{
-                currentComponent:'commentSection'
+                currentComponent:'productDescs'
             }
         },
         mounted(){
@@ -58,7 +61,8 @@
             prudctDetail,
             commentSection,
             productDescs,
-            componyDetali
+            componyDetali,
+            technicalDetail
         },
         methods:{
             changeButtonColor(e){

@@ -26,6 +26,7 @@
       <digi-card
         :imgs='JSON.stringify(["/images/shrink.png","/images/shrink2.png","/images/digi1.jpg","/images/digi2.jpg"])'
       ></digi-card>
+      <customers></customers>
     </div>
   </div>
 </template>
@@ -37,6 +38,7 @@ import flipCard from "./flipCard/flipCard.vue";
 import categorie from "./categorie/categorie.vue";
 import expandingCard from "./expandingCard/expandingCard.vue";
 import extraSignUp from "./extraSignUp/extraSignUp.vue";
+import customers from "./customers/customers.vue"
 export default {
   components: {
     slider,
@@ -46,6 +48,7 @@ export default {
     digiCard,
     extraSignUp,
     expandingCard,
+    customers
   },
   props: ["products", "main_categories", "posts"],
 
@@ -62,7 +65,7 @@ export default {
 	width:90% !important;
 }
 .digiCardIndex {
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 20px;
 }
 #topOfIndex {
@@ -140,7 +143,7 @@ export default {
     display: none;
   }
   .shouldCollapse{
-	width:100%;
+	width:100% !important
 }
 }
 @media (max-width: 800px) {

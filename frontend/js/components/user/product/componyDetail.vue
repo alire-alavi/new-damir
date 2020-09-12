@@ -3,26 +3,30 @@
         <table>
             <tbody>
                 <tr>
-                    <th>سال تاسیس کمپانی:</th>
                     <td>1375</td>
+                    <th>:سال تاسیس کمپانی</th>
+                    
                     
                     
                 </tr>
                 <tr>
-                    <th>محل شرکت:</th>
                     <td>تهران</td>
+                    <th>:محل شرکت</th>
+                    
                     
                     
                 </tr>
                 <tr>
-                    <th>دسته بندی محصول:</th>
                     <td>صوتی</td>
+                    <th>:دسته بندی محصول</th>
+                    
                     
                     
                 </tr>
                 <tr>
-                    <th>تعداد کارمندان:</th>
                     <td>30 تا 40 نفر</td>
+                    <th>:تعداد کارمندان</th>
+                    
                 
                 </tr>
             </tbody>
@@ -42,8 +46,8 @@
         margin-bottom: 20px;
     }
     td{
-        text-align:left;
-        width:50%
+        text-align:right;
+        width:85%
     }
     td,th{
         padding:10px
@@ -55,7 +59,7 @@
         background: rgb(221, 215, 215);
     }
     th{
-        text-align:left;
-        width:50%
+        text-align:right;
+        width:15%
     }
 </style>
