@@ -17,6 +17,16 @@ Notes:
 2- Creating the category model in the databasse
 """
 ########################################################################################
+LABEL_CHOICES = (
+    ('برگزیده','برگزیده'),
+    ('تخفیف','تخفیف'),
+    ('پرفروش','پرفروش'),
+    ('تولید داخل','تولید داخل'),
+    ('شب یلدا','شب یلدا'),
+    ('پیشنهاد ویژه','پیشنهاد ویژه'),
+
+)
+
 class Product(models.Model):
     SAMPLE_CHOICES = (
         ("خیر","خیر"),
@@ -42,6 +52,7 @@ class Product(models.Model):
     samples = models.CharField(max_length=24, verbose_name="ارائه نمونه", null=True,
                                 blank=True, choices=SAMPLE_CHOICES)
     remarks = models.TextField(verbose_name="ملاحظات", null=True, blank=True)
+    label = models.CharField(max_length=32, choices=LABEL_CHOICES, null=True, blank=True)
 
 
     def __str__(self):
@@ -106,7 +117,8 @@ class ProductComment(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="محصول")
     is_confirmed = models.BooleanField(default=False)
     content = models.TextField(verbose_name="متن نظر")
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="کاربر")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="کاربر" ,null=True, blank=True)
+    username = models.CharField(max_length=132, null=True, blank=True)
 
     def __str__(self):
         return f"{self.user.username} comment for {self.product.title}"
