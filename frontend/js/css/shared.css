@@ -11,6 +11,10 @@ html {
 	font-family: yekan;
 	src: url(/static/js/css/font/yekan.ttf);
 }
+@font-face {
+	font-family: iranSans;
+	src: url(/static/js/css/font/iranSans.ttf);
+}
 
 body {
 	font-family: 'yekan';

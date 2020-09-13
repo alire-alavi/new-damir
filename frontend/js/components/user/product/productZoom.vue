@@ -35,8 +35,8 @@
     .zoomIn img{
         position: absolute;
         z-index:555;
-        max-width:95%;
-        max-height: 700px;
+        width:85%;
+        /* max-height: 700px; */
         left: 50%;
         margin-top:100px;
         transform: translateX(-50%);

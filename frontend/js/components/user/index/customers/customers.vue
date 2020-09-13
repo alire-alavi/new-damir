@@ -43,6 +43,11 @@
     width:200px;
     transition:all 0.4s
 }
+@media (max-width:400px){
+    .cusImgs{
+        justify-content: center;
+    }
+}
 img:hover{
     filter:grayscale(0)
 }

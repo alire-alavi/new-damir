@@ -56,6 +56,7 @@ img{
 .contactUs{
     display:flex;
     justify-content: center;
+    margin-top:5px;
 }
 img.normal{
     width: 100%;

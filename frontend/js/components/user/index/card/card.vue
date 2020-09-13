@@ -16,7 +16,7 @@
 										<a class="link" :href="getSlug(p.slug)">{{p.title}}</a>
 									</div>
 									<div class="descsP">
-										<p>{{p.description}}</p>
+										<p>{{getDescription(p.description)}}</p>
 									</div>
 									<div class="link">
 										<a class="submit" :href="getSlug(p.slug)">مشاهده</a>
@@ -181,6 +181,9 @@
 			
 		},
         methods:{
+			getDescription(desc){
+				return desc.length>100 ? desc.substring(0,100)+"...." : desc
+			},
 			getSlug(slug){
 				return `/products/${slug}`
 			},

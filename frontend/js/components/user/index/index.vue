@@ -6,6 +6,9 @@
         <categorie :mainCats="JSON.parse(main_categories)"></categorie>
       </div>
     </div>
+    <div class="shouldCollapse">
+      <comments></comments>
+    </div>
 	<div class="shouldCollapse">
 		<flip-card></flip-card>
 	</div>
@@ -39,6 +42,7 @@ import categorie from "./categorie/categorie.vue";
 import expandingCard from "./expandingCard/expandingCard.vue";
 import extraSignUp from "./extraSignUp/extraSignUp.vue";
 import customers from "./customers/customers.vue"
+import comments from "./comments/comments.vue"
 export default {
   components: {
     slider,
@@ -48,7 +52,8 @@ export default {
     digiCard,
     extraSignUp,
     expandingCard,
-    customers
+    customers,
+    comments
   },
   props: ["products", "main_categories", "posts"],
 
