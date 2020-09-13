@@ -15,7 +15,7 @@
                 <p class="inputError">فرمت شماره اشتباه است</p> 
             </div>
             <div>
-                <button @click='consulateRequest()' class="submit">ثبت</button>
+                <button @click='consulateRequest' class="submit">ثبت</button>
             </div>
             <input type="hidden" :value="productName">
 
@@ -41,13 +41,12 @@
             },
             closeConsulate(e){
                     e.target.style.display="none"
+                    document.body.style.overflow=""
                     // cons.style.display='none'
             },
             consulateRequest(){
                 const doneMessage=document.querySelector('#doneMessage')
                 doneMessage.style.display='block'
-                this.toggleConsulate()
-                this.changeBodyOverFlow()
                 setTimeout(()=>{
                     doneMessage.style.display='none'
                 },5000)
@@ -110,7 +109,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        position:absolute;
+        position: absolute;
         background: rgb(233, 233, 233);
         padding:20px;
         left:50%;

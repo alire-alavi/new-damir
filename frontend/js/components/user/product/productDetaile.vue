@@ -184,10 +184,11 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
 
             },
             getPriceRequest(){
-                const consulet=document.querySelector(".productConsulate")
-                const wrapper=consulet.querySelector(".productConsulateWrapper")
+                const consulet=document.querySelector(".consulate")
+                const wrapper=document.querySelector(".consulateWrapper")
                 consulet.style.display="block"
-                this.adjustFromTop(wrapper,false)
+                this.adjustFromTop(wrapper,false,true)
+                document.body.style.overflow="hidden"
                 
                 
             },
