@@ -1,7 +1,7 @@
 <template>
     <div id="product" class='mainItemPerPage shouldCollapse'>
         <div id="productWrapper" class='maxis'>
-            <prudctDetail></prudctDetail>
+            <prudctDetail :productDet='JSON.parse(product)'></prudctDetail>
             <hr>
             <div class="chooseSection">
                 <div class="section">
@@ -17,10 +17,10 @@
             </div>
             <hr>
             <transition name="swapComp" mode="out-in">
-                <component :is="currentComponent"></component>
+                <component  :is="currentComponent"></component>
 
             </transition>
-            <comment-section></comment-section>
+            <comment-section :product='JSON.parse(product)'></comment-section>
         </div>
 
 
@@ -37,14 +37,14 @@
     import technicalDetail from "./technicalDetatil.vue"
     import axios from 'axios'
     export default{
-        props:["porduct"],
+        props:["product"],
         data(){
             return{
                 currentComponent:'productDescs'
             }
         },
         mounted(){
-            console.log(this.product)
+            console.log(JSON.parse(this.product))
         },
         name:"product",
         components:{

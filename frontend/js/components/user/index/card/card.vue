@@ -13,13 +13,13 @@
 								</div>
 								<div class="descs">
 									<div class="title">
-										<a class="link" href="#">{{p.title}}</a>
+										<a class="link" :href="getSlug(p.slug)">{{p.title}}</a>
 									</div>
 									<div class="descsP">
 										<p>{{p.description}}</p>
 									</div>
 									<div class="link">
-										<a class="submit">مشاهده</a>
+										<a class="submit" :href="getSlug(p.slug)">مشاهده</a>
 										<p>{{p.price || 0}}  تومان</p>
 									</div>
 								</div>
@@ -181,6 +181,9 @@
 			
 		},
         methods:{
+			getSlug(slug){
+				return `/products/${slug}`
+			},
 			reCalculatePer(){
 				let per=2
 					let width=window.innerWidth

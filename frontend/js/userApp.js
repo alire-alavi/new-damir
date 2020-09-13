@@ -1,6 +1,6 @@
 
 import vue from 'vue'
-import vueRouter from 'vue-router'
+// import vueRouter from 'vue-router'
 import {store} from './userStore.js'
 import heading from "./components/user/template/header/header.vue"
 import index from "./components/user/index/index.vue"
@@ -12,22 +12,20 @@ import productZoom from './components/user/product/productZoom.vue'
 import signup from "./components/user/signup/signup.vue"
 import products from "./components/user/prodcuts/products.vue"
 import filtering from "./components/user/prodcuts/filtering.vue"
-import userPanel from "./components/user/userPanel/userPanel.vue"
+// import userPanel from "./components/user/userPanel/userPanel.vue"
 import category from "./components/user/category/category.vue"
 import doneMessage from './components/user/template/doneMessage/doneMessage.vue'
 import blog from "./components/blog/blog/blog.vue"
 import singleBlogPost from './components/blog/blogPost/blogPost.vue'
 import {routes} from "./routes.js"
-// import ckeditor from 'ckeditor4-vue';
+import ZoomOnHover from "vue-zoom-on-hover";
+vue.use(ZoomOnHover);
+// vue.use(vueRouter)
 
-// vue.use(ckeditor);
-// import "./cckk/build/ckeditor.js"
-vue.use(vueRouter)
-
-const router=new vueRouter({
-	routes,
-	mode:"history"
-})
+// const router=new vueRouter({
+// 	routes,
+// 	mode:"history"
+// })
 const app=new vue({
 	el:"#app",
 	components:{
@@ -41,14 +39,14 @@ const app=new vue({
 		signup,
 		products,
 		filtering,
-		userPanel,
+		// userPanel,
 		category,
 		doneMessage,
 		blog,
 		singleBlogPost
 	},
 	store,
-	router,
+	// router,
 	// Router
 })
 

@@ -70,38 +70,21 @@
 	cursor: pointer;
 }
 
-
-
-
-
-.specialBTN{
-	width: 200px;
-	font-size: 20px;
-	font-weight: 600;
-	color: #fff;
-	cursor: pointer;
-	margin: 20px;
-	height: 55px;
-	text-align:center;
-	border: none;
-	background-size: 300% 100%;
-
-	border-radius: 50px;
-	moz-transition: all .4s ease-in-out;
-	-o-transition: all .4s ease-in-out;
-	-webkit-transition: all .4s ease-in-out;
-	transition: all .4s ease-in-out;
-	background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
-	box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+.stelam{
+	padding: 10px 20px 10px 20px;
+    border-radius: 60px;
+    border: 2px solid black;
+    background: transparent;
+    font-size: 15pt;
+    color: black;
+    font-family: 'yekan';
+    cursor: pointer;
 }
-.specialBTN:hover {
-	background-position: 100% 0;
-	moz-transition: all .4s ease-in-out;
-	-o-transition: all .4s ease-in-out;
-	-webkit-transition: all .4s ease-in-out;
-	transition: all .4s ease-in-out;
+.stelam:hover{
+	color:#505050;
+	border:2px solid #505050
 }
 
-.specialBTN:focus {
-	outline: none;
+button{
+	outline-style: none;
 }

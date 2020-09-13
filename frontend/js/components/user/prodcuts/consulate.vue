@@ -3,14 +3,14 @@
         <div @click='prevent($event)' class="consulateWrapper">
              <div id="email" class="inputs">
                 <div class='formInputsWrapper'>
-                        <input autocomplete="off" name="email" @blur='focusOut($event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userEmail' type="text">
-                        <label class='comeUpLabel' for="userEmail">نام</label>                                                                  
+                        <input autocomplete="off" name="email" @blur='focusOut($event)' class='inputWithLabelThatShouldStay signupFormInputs' id='consulateUserName' type="text">
+                        <label class='comeUpLabel' for="userName">نام</label>                                                                  
                 </div> 
             </div>
              <div id="email" class="inputs">
                 <div class='formInputsWrapper'>
-                        <input autocomplete="off" name="email" @blur='focusOut($event),startValidation("phone",$event)' class='inputWithLabelThatShouldStay signupFormInputs' id='userEmail' type="text">
-                        <label class='comeUpLabel' for="userEmail">شماره تلفن</label>                                                                  
+                        <input autocomplete="off" name="email" @blur='focusOut($event),startValidation("phone",$event)' class='inputWithLabelThatShouldStay signupFormInputs' id='consulateUserPhone' type="text">
+                        <label class='comeUpLabel' for="consulateUserPhone">شماره تلفن</label>                                                                  
                 </div>
                 <p class="inputError">فرمت شماره اشتباه است</p> 
             </div>

@@ -129,7 +129,7 @@ export default {
         this.toggleBodyOverFlow()
     },
     getSlugn(p){
-      return `/${p.slug}`
+      return `/blog/post/${p.slug}`
     }
   },
   

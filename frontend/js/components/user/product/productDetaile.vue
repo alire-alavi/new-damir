@@ -46,7 +46,7 @@
 
 
                                 
-                                <div class='numbers'><p>مانده:<span>ناموجود</span></p></div>
+                                <div class='numbers'><p>مانده:<span>{{productDet.stock}}</span></p></div>
                             </div>
                         </div>
 
@@ -59,23 +59,23 @@
                             <div class="justReadableDetailWrapper">
                                 <div class="price singleDetail">
                                     <div class='order1'><p>قیمت:</p></div>
-                                    <div class='order2'><p>100 تومن</p></div>
+                                    <div class='order2'><p>{{productDet.price}}</p></div>
                                 </div>
                                 <div class="price singleDetail">
                                     <div class='order1'><p>حداقل تعداد قابل خرید:</p></div>
-                                    <div class='order2'><p>5</p></div>
-                                </div>
-                                <div class="price singleDetail">
-                                    <div class='order1'><p>حذاکثر تعداد قابل خرید:</p></div>
-                                    <div class='order2'><p>100</p></div>
+                                    <div class='order2'><p>{{productDet.minimum_order}}</p></div>
                                 </div>
                                 <div class="price singleDetail">
                                     <div class='order1'><p>ارائه نمونه:</p></div>
-                                    <div class='order2'><p>بله</p></div>
+                                    <div class='order2'><p>{{productDet.samples}}</p></div>
                                 </div>
                                 <div class="price singleDetail">
                                     <div class='order1'><p>امتیاز:</p></div>
                                     <div class='order2'><p>4.5</p></div>
+                                </div>
+                                <div class="price singleDetail">
+                                    <div class='order1'><p>ساخت:</p></div>
+                                    <div class='order2'><p>{{made_in}}</p></div>
                                 </div>
                                 <div class="rating">
                                     <div class="star">
@@ -88,7 +88,7 @@
                             </div>
                             <div class="contactUs">
                                 <div class="contactUsWrapper">
-                                    <button class="submit" @click.prevent="getPriceRequest">استعلام قیمت</button>
+                                    <button class="stelam" @click.prevent="getPriceRequest">استعلام قیمت</button>
                                 </div>
                             </div>
                         </div>
@@ -108,6 +108,7 @@ import consulate from "../prodcuts/consulate.vue"
 import {keepStay} from "../../user/mixIns/keepStay.js"
 import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
     export default {
+        props:['productDet'],
         mounted(){
            new Glider(document.querySelector('.glider'), {
                 slidesToShow: 'auto',

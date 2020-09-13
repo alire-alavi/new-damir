@@ -1,151 +1,30 @@
 <template>
     <div id="products" class='shouldCollapse maxIs'>
         <div id="productsWrapper">
-            <div class="singleProduct">
+
+
+            <div class="singleProduct" v-for='p in JSON.parse(this.products)' :key='p.slug'>
                 <div class="img">
-                    <img src="/images/1.jpg" alt="">
+                    <!-- <img src="/images/1.jpg" alt=""> -->
+                    <zoom-on-hover :img-normal="getImage(p.product_image)"></zoom-on-hover>
                 </div>
                 <div class="title">
-                    <a href="#"><p>خط تولید فلان</p></a>
+                    <a :href="gethref(p.slug)"><p>{{p.title}}</p></a>
                 </div>
                 <div class="price">
-                    <p>3200000 تومان</p>
-                    <p>حداقل خرید : یک تن</p>
+                    <p>{{p.price}} تومان</p>
+                    <p>کشور ساخت:{{p.made_in}}</p>
                 </div>
                 <div class="contactUs">
-                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
+                    <button class="stelam" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
                 </div>
-                <consulate productName="خط تولید"></consulate>
+                <consulate :productName="p.title"></consulate>
             </div>
 
-            <div class="singleProduct">
-                <div class="img">
-                    <img src="/images/ours1.png" alt="">
-                </div>
-                <div class="title">
-                    <a href="#"><p>خط تولید فلان</p></a>
-                </div>
-                <div class="price">
-                    <p>3200000 تومان</p>
-                    <p>حداقل خرید : یک تن</p>
-                </div>
-                <div class="contactUs">
-                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
-                </div>
-                <consulate productName="خط تولید"></consulate>
-            </div>
-            <div class="singleProduct">
-                <div class="img">
-                    <img src="/images/1.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="#"><p>خط تولید فلان</p></a>
-                </div>
-                <div class="price">
-                    <p>3200000 تومان</p>
-                    <p>حداقل خرید : یک تن</p>
-                </div>
-                <div class="contactUs">
-                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
-                </div>
-                <consulate productName="خط تولید"></consulate>
-            </div>
-            <div class="singleProduct">
-                <div class="img">
-                    <img src="/images/1.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="#"><p>خط تولید فلان</p></a>
-                </div>
-                <div class="price">
-                    <p>3200000 تومان</p>
-                    <p>حداقل خرید : یک تن</p>
-                </div>
-                <div class="contactUs">
-                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
-                </div>
-                <consulate productName="خط تولید"></consulate>
-            </div>
-            <div class="singleProduct">
-                <div class="img">
-                    <img src="/images/1.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="#"><p>خط تولید فلان</p></a>
-                </div>
-                <div class="price">
-                    <p>3200000 تومان</p>
-                    <p>حداقل خرید : یک تن</p>
-                </div>
-                <div class="contactUs">
-                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
-                </div>
-                <consulate productName="خط تولید"></consulate>
-            </div>
-            <div class="singleProduct">
-                <div class="img">
-                    <img src="/images/1.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="#"><p>خط تولید فلان</p></a>
-                </div>
-                <div class="price">
-                    <p>3200000 تومان</p>
-                    <p>حداقل خرید : یک تن</p>
-                </div>
-                <div class="contactUs">
-                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
-                </div>
-                <consulate productName="خط تولید"></consulate>
-            </div>
-            <div class="singleProduct">
-                <div class="img">
-                    <img src="/images/1.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="#"><p>خط تولید فلان</p></a>
-                </div>
-                <div class="price">
-                    <p>3200000 تومان</p>
-                    <p>حداقل خرید : یک تن</p>
-                </div>
-                <div class="contactUs">
-                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
-                </div>
-                <consulate productName="خط تولید"></consulate>
-            </div>
-            <div class="singleProduct">
-                <div class="img">
-                    <img src="/images/1.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="#"><p>خط تولید فلان</p></a>
-                </div>
-                <div class="price">
-                    <p>3200000 تومان</p>
-                    <p>حداقل خرید : یک تن</p>
-                </div>
-                <div class="contactUs">
-                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
-                </div>
-                <consulate productName="خط تولید"></consulate>
-            </div>
-            <div class="singleProduct">
-                <div class="img">
-                    <img src="/images/1.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="#"><p>خط تولید فلان</p></a>
-                </div>
-                <div class="price">
-                    <p>3200000 تومان</p>
-                    <p>حداقل خرید : یک تن</p>
-                </div>
-                <div class="contactUs">
-                    <button class="submit" @click.prevent='showConsulate($event)'>استعلام قیمت</button>
-                </div>
-                <consulate productName="خط تولید"></consulate>
-            </div>
+
+
+
+            
             
         </div>
 
@@ -178,6 +57,10 @@ img{
     display:flex;
     justify-content: center;
 }
+img.normal{
+    width: 100%;
+    height: 300px !important;
+}
 
 </style>
 
@@ -188,6 +71,19 @@ img{
      import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
      import {toggleBodyOverFlow} from "../../user/mixIns/toggleBodyOverFlow.js"
     export default{
+        props:['products',"pagination"],
+        mounted(){
+            console.log(JSON.parse(this.products),this.pagination)
+            const allImages=document.querySelectorAll(".normal")
+            allImages.forEach(img=>{
+                console.log(img)
+                img.style.width='100%'
+                img.style.height="300px"
+                const zoom=img.nextElementSibling
+                zoom.style.width="200%"
+                zoom.style.width="200%"
+            })
+        },
         components:{
             consulate,
             filtering
@@ -225,6 +121,15 @@ img{
                 this.adjustFromTop(wrap,false,true)
                 this.toggleBodyOverFlow("hidden")
                 
+            },
+            getImage(img){
+                if(img==null){
+                    return '/images/ours1.png'
+                }
+                return img
+            },
+            gethref(slug){
+                return `/products/${slug}`
             }
         }
     }

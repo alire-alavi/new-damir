@@ -307,6 +307,6 @@ def product_paginated(request, page):
 
     context = {
         'products' : json_products_data,
-        'page-data' : json_page_data,
+        'pageData' : json_page_data,
     }
     return render(request, 'views/products.html', context)

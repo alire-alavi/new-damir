@@ -16,7 +16,7 @@
             </div>
             <div id="allComments">
                 <div id="allComentsWrapper">
-                    <div class="singleComment">
+                    <div class="singleComment" v-for="(c,i) in product.comments" :key="i">
                         <div class="singleCommentWrap">
                             <div class="writerDetail">
                                 <div class="date">
@@ -28,42 +28,25 @@
                                 
                             </div>
                             <div class="comment">
-                                <p>خوبه خوبه خوبه خوبه خوبه خوبه خوبه خوبه خوبه خوبه خوبه خوبه خوبه خومبه خوبننئنjjjjjjjjjjjjjjjjjjjjئنئنئنئنئنئنئه خوبه خوبه خوبه خوبه خوبه خوبه خوبه خیلی خوبه من دارمش عالیه خوبه خوبه </p>
+                                <p>{{c.content}}</p>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="commentSlicer">
-                        <div></div>
-                    </div>
-
-
-                    <div class="singleComment">
-                        <div class="singleCommentWrap">
-                            <div class="writerDetail">
-                                <div class="date">
-                                    <p>تاریخ:16/6/1399</p>
-                                </div>
-                                <div class="name">
-                                    <p>عرفان شفیعی</p>
-                                </div>
-                                
-                            </div>
-                            <div class="comment">
-                                <p>خوبه</p>
-                            </div>
+                        <div class="commentSlicer">
+                            <div></div>
                         </div>
                     </div>
-
-
-
-
                 </div>
                 <button class="submit">مشاهده کامنت بیشتر</button>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    props:['product']
+}
+</script>
 
 
 <style scoped>
@@ -79,7 +62,7 @@
     }
     .commentSlicer{
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
     }
     #productComments{
         margin-top:50px;
@@ -157,18 +140,12 @@
         .commentSlicer{
             display: flex;
             margin-top:10px;
-            justify-content: center;
+            justify-content: flex-end;
         }
         #allComentsWrapper .singleComment:not(first-child)
         {
             padding-bottom:10px
         }   
     }
-
-</style>
-
-
-<style>
-
 
 </style>

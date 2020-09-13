@@ -195,6 +195,8 @@
 			align-items: center;
 			justify-content: center;
 			position: absolute;
+			background:rgb(49,44,54);
+			color:white !important;
 			top:305px;
 			z-index:668
 		}
@@ -207,6 +209,11 @@
 			padding-right: 0;
 			margin-top: 10px;
 			text-align: center;
+			color:#ffffff !important;
+			width:100%
+		}
+		a{
+			color:#ffffff
 		}
 		ul li:not(:first-child),ul li:not(:first-child)
 		{
