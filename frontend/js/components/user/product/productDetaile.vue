@@ -6,7 +6,7 @@
             
             <div class="productDetailWrapper">
                 <div class="prodcuctName">
-                    <h1>بیل مکانیکی</h1>
+                    <h1>{{productDet.title}}</h1>
                 </div>
                 <div class="productDetails">
                     <div class="productDetailsWrap">
@@ -19,7 +19,7 @@
 
                         <div class="productImgAndOther">
                             <div class="productImg">
-                                <img @click="zoomInOnPhoto($event)" class='photo' src="/images/6.jpg" alt="">
+                                <img @click="zoomInOnPhoto($event)" class='photo' :src="getImgSrc()" alt="">
                                <!--  <div class="productImage"></div> -->
                                 <div @click='zoomIn()'><img class='zoomSign' src="/images/mag.png" alt=""><p>بزرگنمایی</p></div>
                                 
@@ -29,13 +29,14 @@
 
                                 <div class="glider-contain">
                                     <div class="glider">
+                                        <div><img @click="changeImage($event)" :src="getImgSrc()" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/1.jpg" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/ours1.png" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/3.jpg" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/4.jpg" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/1.jpg" alt=""></div>
-                                        <div><img @click="changeImage($event)" src="/images/2.jpg" alt=""></div>
-                                        <div><img @click="changeImage($event)" src="/images/3.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/2181-moon-black-and-white-wallpaper-file-hd.jpg" alt=""></div>
+                                        <div><img @click="changeImage($event)" src="/images/bandRole.png" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/signupBack2.jpg" alt=""></div>
                                         <div><img @click="changeImage($event)" src="/images/abchasb.png" alt=""></div>
                                         <!-- <div><img @click="changeImage($event)" src="/images/ours1.png" alt=""></div> -->
@@ -75,7 +76,7 @@
                                 </div>
                                 <div class="price singleDetail">
                                     <div class='order1'><p>ساخت:</p></div>
-                                    <div class='order2'><p>{{made_in}}</p></div>
+                                    <div class='order2'><p>{{productDet.made_in}}</p></div>
                                 </div>
                                 <div class="rating">
                                     <div class="star">
@@ -214,6 +215,9 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
                 const photo=document.querySelector(".photo")
                 photo.setAttribute("src",src)
 
+            },
+            getImgSrc(){
+                return this.productDet.product_image
             }
         }
     }
@@ -354,7 +358,8 @@ import {adjustElFromTop} from "../../user/mixIns/adjustElFromTop.js"
         width:100%;
         text-align:right;
         padding-bottom: 10px;
-        font-size:15pt
+        font-size: 17pt;
+    font-weight: bold;
     }
     .productDetailWrapper{
         display:flex;
