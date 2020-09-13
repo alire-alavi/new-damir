@@ -37,6 +37,7 @@ class ProductDetailSerializer(serializers.ModelSerializer):
     sample = serializers.SerializerMethodField()
     user = serializers.SerializerMethodField()
     category = serializers.SerializerMethodField()
+    label = serializers.SerializerMethodField()
 
 
     class Meta:
@@ -74,6 +75,9 @@ class ProductDetailSerializer(serializers.ModelSerializer):
     def get_user(self, obj):
         return UserSerializer(obj.producer).data
 
+    def get_label(self, obj):
+        return obk.get_label_display()
+
 
 
 class ProductCommentSerializer(serializers.ModelSerializer):
@@ -86,6 +90,7 @@ class ProductCommentSerializer(serializers.ModelSerializer):
             'content',
             'user',
             'product',
+            'username',
         )
 
 

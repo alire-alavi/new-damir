@@ -258,10 +258,12 @@ class ProductDetailView(View):
         form = ProductCommentForm(request.POST or None)
         if form.is_valid():
             product = Product.objects.get(slug=slug)
-            form.instance.user = self.request.user
+            if request.user.is_authenticated():
+                form.instance.user = self.request.user
             form.instance.product = product
-            # form.instance.content = json.loads(request.POST['content'])
-            form.instance.content = request.POST['content']
+            form.instance.content = json.loads(request.POST['content'])
+            form.instance.username = json.loads(request.POST['username'])
+            # form.instance.content = request.POST['content']
             form.save()
             return redirect(reverse("products:product_detail", kwargs={'slug': slug}))
         else:
@@ -310,3 +312,23 @@ def product_paginated(request, page):
         'pageData' : json_page_data,
     }
     return render(request, 'views/products.html', context)
+
+
+
+
+
+
+
+#create comment with form
+# def post(self, request, slug, *args, **kwargs):
+#         form = ProductCommentForm(request.POST or None)
+#         if form.is_valid():
+#             product = Product.objects.get(slug=slug)
+#             form.instance.user = self.request.user
+#             form.instance.product = product
+#             # form.instance.content = json.loads(request.POST['content'])
+#             form.instance.content = request.POST['content']
+#             form.save()
+#             return redirect(reverse("products:product_detail", kwargs={'slug': slug}))
+#         else:
+#             return Response(status=status.HTTP_400_BAD_REQUEST)
