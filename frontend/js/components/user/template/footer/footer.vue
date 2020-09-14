@@ -84,8 +84,7 @@
 		align-items: center;
 		background: #f6f6f4;
 		border-top:1px solid #d9d8d8;
-		
-		/* position: relative; */
+		width: 100%;
 	}
 	#footer p,#footer a{
 		color:black
