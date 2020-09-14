@@ -93,30 +93,19 @@ WSGI_APPLICATION = 'website.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-# erfan
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'damir',
-        'USER': 'postgres',
-        'PASSWORD': '5s0g8la5',
+        'USER': 'jeremih',
+        'PASSWORD': 'hellomother',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
-#alireza
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'damir',
-        'USER': 'postgres',
-        'PASSWORD': '5s0g8la5',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-"""
+
 
 
 # Password validation
