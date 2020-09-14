@@ -1,6 +1,6 @@
 venv
 media
 static
-
+__pycache__/
 frontend/node_modules
 node_modules
